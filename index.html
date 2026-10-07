@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rio &amp; Jay · December 20, 2026</title>
+<meta name="description" content="You're cordially invited to the wedding of Rio and Jay. Sunday, December 20, 2026 at The VFarm Bamban, Tarlac.">
+<meta property="og:title" content="Rio &amp; Jay · December 20, 2026">
+<meta property="og:description" content="You're cordially invited. Kindly RSVP by November 1, 2026.">
+<meta property="og:image" content="https://rioandjaywedding.com/images/memorial-hall.jpg">
+<meta property="og:url" content="https://rioandjaywedding.com/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#062b1f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23062b1f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' text-anchor='middle' fill='%23f3efe6'%3ER%26J%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&amp;family=Ms+Madi&amp;family=Spectral:ital,wght@0,400;0,600;1,400&amp;family=Courier+Prime:wght@400;700&amp;display=swap">
+<style>
+body{margin:0;background:#062b1f}
+a{color:#d5ebe0}a:hover{color:#ffffff}
+.tile::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.35)}
+.env{perspective:900px}
+.flap{z-index:4;transform-origin:top center;transition:transform .7s ease}
+.opening .flap{transform:rotateX(180deg);z-index:1}
+.opening .env{z-index:1 !important}
+.letter{transition:translate .9s .45s cubic-bezier(.2,.8,.3,1)}
+.opening .letter{translate:0 -58%}
+.seal{transition:opacity .3s,scale .3s}
+.seal:hover{scale:1.06}
+.opening .seal{opacity:0;scale:.6}
+.stage{container-type:inline-size;position:relative;aspect-ratio:3/5;height:min(56vh,580px);max-width:94vw;transition:height .9s ease}
+.opening .stage{height:min(72vh,660px)}
+.ihead{max-height:240px;overflow:hidden;transition:opacity .4s ease,max-height .8s .15s ease}
+.opening .ihead{opacity:0;max-height:0}
+.cardwrap{position:absolute;inset:0;z-index:2;clip-path:inset(-300% -300% 0 -300%)}
+.icard{position:absolute;left:5%;width:90%;top:62%;height:82%;transition:top 1.1s .55s cubic-bezier(.2,.8,.3,1)}
+.opening .icard{top:8%}
+.ins-rsvp{position:absolute;z-index:2;left:25%;top:64%;width:50%;transition:left .9s 1.4s cubic-bezier(.2,.8,.3,1),top .9s 1.4s cubic-bezier(.2,.8,.3,1),transform .9s 1.4s ease,z-index 0s 1.75s}
+.opening .ins-rsvp{z-index:7;left:1%;top:59%;transform:rotate(-6deg)}
+.ins-vel{position:absolute;z-index:2;right:26%;top:65%;width:48%;transition:right .9s 1.6s cubic-bezier(.2,.8,.3,1),top .9s 1.6s cubic-bezier(.2,.8,.3,1),transform .9s 1.6s ease,z-index 0s 1.95s}
+.opening .ins-vel{z-index:8;right:1%;top:61.5%;transform:rotate(5deg)}
+.pb{position:absolute;left:50%;top:60%;opacity:0;z-index:6;pointer-events:none}
+.opening .pb{animation:pburst 1.9s .45s ease-out forwards}
+@keyframes pburst{0%{opacity:0;translate:0 0;scale:.4}15%{opacity:1}100%{opacity:0;translate:var(--x) var(--y);rotate:var(--r);scale:1}}
+.stepin{opacity:0;translate:0 10px;animation:stepin .6s 2.3s ease forwards}
+@keyframes stepin{to{opacity:1;translate:0 0}}
+.intro{transition:opacity .7s ease}
+.intro.leaving{opacity:0;pointer-events:none}
+.seg{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid #d8cfbf;background:#fbf8f2;color:#15261f;font-family:'Spectral',serif;font-size:16px;cursor:pointer}
+.seg.on{background:#062b1f;border-color:#062b1f;color:#f3efe6}
+.swbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px 0 8px;border-radius:999px;border:1px solid #e0d7c8;background:#ffffff;color:#15261f;font-family:'Spectral',serif;font-size:15px;cursor:pointer}
+.swbtn.on{border-color:#062b1f;box-shadow:0 0 0 2px #062b1f inset}
+.swdot{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);flex-shrink:0}
+.sw-deepred{background:#7a1016}.sw-beige{background:#efd9cc}.sw-darkbeige{background:#a58467}.sw-taupe{background:#c4bab1}.sw-black{background:#111111}
+.sw-white{background:#fbf8f0}.sw-red{background:#e01e2b}.sw-neon{background:#b6ff3b}.sw-navy{background:#1d2a52}.sw-green{background:#0f7a4f}
+.cf{position:absolute;top:-24px;border-radius:2px}
+
+@media (prefers-reduced-motion: no-preference){
+.ttl .w{display:inline-block;opacity:0;translate:0 .35em;transition:opacity 1s ease,translate 1s cubic-bezier(.2,.8,.3,1)}
+.ttl.go .w{opacity:1;translate:0 0}
+.sway{animation:sway 7s ease-in-out infinite}
+@keyframes sway{0%,100%{rotate:-1.2deg}50%{rotate:1.4deg}}
+.petal{animation:drift linear infinite}
+@keyframes drift{0%{translate:0 0;rotate:0deg;opacity:0}12%{opacity:.85}100%{translate:90px 1050px;rotate:400deg;opacity:0}}
+.draw-l,.draw-r{scale:0 1;transition:scale 1.4s .2s cubic-bezier(.2,.8,.3,1)}
+.draw-l{transform-origin:right center}.draw-r{transform-origin:left center}
+.in .draw-l,.in .draw-r{scale:1 1}
+.pop{scale:0;transition:scale .55s cubic-bezier(.3,1.6,.5,1)}
+.in .pop{scale:1}
+.flicker{animation:flicker 2.6s ease-in-out infinite}
+@keyframes flicker{0%,100%{opacity:1}30%{opacity:.72}34%{opacity:.95}62%{opacity:.8}66%{opacity:1}}
+a[style*="border-radius: 999px"],button[style*="border-radius: 999px"]{transition:translate .2s ease,box-shadow .2s ease}
+a[style*="border-radius: 999px"]:hover,button[style*="border-radius: 999px"]:hover{translate:0 -2px;box-shadow:0 10px 22px rgba(0,0,0,.22)}
+#music figure img{transition:scale .45s ease}
+#music figure:hover img{scale:1.04}
+.lift{transition:translate .3s ease,box-shadow .3s ease}
+.lift:hover{translate:0 -5px;box-shadow:0 16px 30px rgba(0,0,0,.3)}
+}
+.aisle{display:none}
+@media (min-width: 720px){.aisle{display:block}}
+@media (prefers-reduced-motion: no-preference){
+.tile.fa{animation:flipA .55s ease}
+.tile.fb{animation:flipB .55s ease}
+@keyframes flipA{from{transform:perspective(300px) rotateX(-75deg);opacity:.35}to{transform:none;opacity:1}}
+@keyframes flipB{from{transform:perspective(300px) rotateX(-75deg);opacity:.35}to{transform:none;opacity:1}}
+.seal{animation:pulse 2.4s ease-in-out infinite}
+.opening .seal{animation:none}
+@keyframes pulse{0%,100%{box-shadow:0 6px 16px rgba(0,0,0,.35),0 0 0 0 rgba(243,239,230,.35)}50%{box-shadow:0 6px 16px rgba(0,0,0,.35),0 0 0 12px rgba(243,239,230,0)}}
+.rv-up{opacity:0;translate:0 26px;transition:opacity .8s ease,translate .8s ease}
+.rv-up.in{opacity:1;translate:0 0}
+.drop{opacity:0;translate:0 -70px;transition:opacity .7s ease,translate 1s cubic-bezier(.2,.9,.3,1.25)}
+.in .drop{opacity:1;translate:0 0}
+.fade{opacity:0;translate:0 18px;transition:opacity .7s .2s ease,translate .7s .2s ease}
+.in .fade{opacity:1;translate:0 0}
+.ln{scale:1 0;transform-origin:top center;transition:scale 1s ease}
+.in .ln{scale:1 1}
+.dot{scale:0;transition:scale .5s .55s cubic-bezier(.3,1.6,.5,1)}
+.in .dot{scale:1}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;scale:.7}50%{opacity:1;scale:1.4}}
+.fw{opacity:0;scale:.2}
+.in .fw{animation:burst 1.9s .4s ease-out forwards}
+@keyframes burst{0%{opacity:0;scale:.2}35%{opacity:1;scale:1.08}100%{opacity:.55;scale:1}}
+.cf{animation:fall 2.8s ease-in forwards}
+@keyframes fall{0%{translate:0 0;rotate:0deg;opacity:1}100%{translate:40px 108vh;rotate:620deg;opacity:.85}}
+}
+</style>
+<style>
+[hidden]{display:none!important}
+body{overflow-x:clip}
+.dc{display:contents}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+<div style="position: relative; background: #062b1f; color: #f3efe6; font-family: 'Spectral', Georgia, serif; font-size: 17px; line-height: 1.6; min-height: 100vh">
+  <!-- ENVELOPE INTRO -->
+  <div data-if="showIntro" class="dc">
+    <div class="intro" data-action="tapIntro" style="cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; right: 0; height: min(100vh, 960px); min-height: 640px; z-index: 50; background: #062b1f; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 24px 12px; box-sizing: border-box; text-align: center">
+      <img src="images/memorial-hall.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,43,31,0.55) 0%, rgba(6,43,31,0.74) 45%, rgba(6,43,31,0.93) 100%)"></div>
+
+      <div class="ihead" style="position: relative; display: flex; flex-direction: column; gap: 4px; align-items: center">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #d5ebe0">Rio &amp; Jay</span>
+        <span style="font-family: 'Italiana', serif; font-size: clamp(38px, 6.5vw, 60px); line-height: 1.05; color: #fbf8f2">You're cordially invited</span>
+        <span style="font-family: 'Ms Madi', cursive; font-size: 30px; line-height: 1.1; color: #f3d9a4">to celebrate our wedding</span>
+      </div>
+
+      <div class="stage">
+        <!-- envelope back -->
+        <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 40%; z-index: 1; background: #d9cfbd; border-radius: 10px; box-shadow: 0 24px 50px rgba(0,0,0,0.45)"></div>
+
+        <div class="cardwrap">
+          <!-- invitation card -->
+          <div class="icard" style="background: #fbf8f2; border-radius: 4px; box-shadow: 0 14px 34px rgba(0,0,0,0.35); padding: 5%; box-sizing: border-box; color: #15261f">
+            <div style="position: absolute; inset: 3.5%; border: 1px solid #c9b79f; outline: 1px solid #c9b79f; outline-offset: -5px; border-radius: 2px; pointer-events: none"></div>
+            <div style="position: absolute; left: -7%; top: -5%; width: 34%; aspect-ratio: 1; transform: rotate(-8deg)"><svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><path d="M8 92 C 30 70, 48 52, 86 14" stroke="#5f8a72" stroke-width="1.6" fill="none" stroke-linecap="round"></path><ellipse cx="17.0" cy="75.0" rx="3" ry="7" transform="rotate(-90 17.0 75.0)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="27.0" cy="81.0" rx="3" ry="7" transform="rotate(0 27.0 81.0)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="26.4" cy="65.6" rx="3" ry="7" transform="rotate(-90 26.4 65.6)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="36.4" cy="71.6" rx="3" ry="7" transform="rotate(0 36.4 71.6)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="35.8" cy="56.2" rx="3" ry="7" transform="rotate(-90 35.8 56.2)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="45.8" cy="62.2" rx="3" ry="7" transform="rotate(0 45.8 62.2)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="45.1" cy="46.9" rx="3" ry="7" transform="rotate(-90 45.1 46.9)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="55.1" cy="52.9" rx="3" ry="7" transform="rotate(0 55.1 52.9)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="54.5" cy="37.5" rx="3" ry="7" transform="rotate(-90 54.5 37.5)" fill="#7aa38b" opacity="0.9"></ellipse><ellipse cx="64.5" cy="43.5" rx="3" ry="7" transform="rotate(0 64.5 43.5)" fill="#7aa38b" opacity="0.9"></ellipse><g transform="translate(70 30)"><circle r="13" fill="#fbf8f2" stroke="#d9cfbd" stroke-width="0.8"></circle><path d="M-8 -2 C -6 -10, 6 -10, 8 -2 C 6 6, -6 6, -8 -2 Z" fill="#fffdf8" stroke="#d9cfbd" stroke-width="0.7"></path><path d="M-4 -1 C -3 -6, 3 -6, 4 -1 C 3 3, -3 3, -4 -1 Z" fill="#fbf8f2" stroke="#cfc3ae" stroke-width="0.7"></path><circle r="1.6" fill="#e8d9c4"></circle></g></svg></div>
+            <div style="position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 4% 4% 0; box-sizing: border-box; gap: 1.2cqw">
+              <div style="position: relative; width: 12.5cqw; aspect-ratio: 1">
+                <svg viewBox="0 0 80 80" width="100%" height="100%" aria-hidden="true"><circle cx="40" cy="40" r="25" fill="none" stroke="#a58467" stroke-width="0.7"></circle><ellipse cx="44.2" cy="69.7" rx="2.2" ry="5" transform="rotate(147 44.2 69.7)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="52.2" cy="67.4" rx="2.2" ry="5" transform="rotate(131 52.2 67.4)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="59.3" cy="63.0" rx="2.2" ry="5" transform="rotate(115 59.3 63.0)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="64.9" cy="56.8" rx="2.2" ry="5" transform="rotate(99 64.9 56.8)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="68.5" cy="49.3" rx="2.2" ry="5" transform="rotate(83 68.5 49.3)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="70.0" cy="41.0" rx="2.2" ry="5" transform="rotate(67 70.0 41.0)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="69.1" cy="32.7" rx="2.2" ry="5" transform="rotate(51 69.1 32.7)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="25.9" cy="66.5" rx="2.2" ry="5" transform="rotate(233 25.9 66.5)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="19.2" cy="61.6" rx="2.2" ry="5" transform="rotate(249 19.2 61.6)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="14.0" cy="55.0" rx="2.2" ry="5" transform="rotate(265 14.0 55.0)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="10.9" cy="47.3" rx="2.2" ry="5" transform="rotate(281 10.9 47.3)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="10.0" cy="39.0" rx="2.2" ry="5" transform="rotate(297 10.0 39.0)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="11.5" cy="30.7" rx="2.2" ry="5" transform="rotate(313 11.5 30.7)" fill="#5f8a72" opacity="0.85"></ellipse><ellipse cx="15.1" cy="23.2" rx="2.2" ry="5" transform="rotate(329 15.1 23.2)" fill="#5f8a72" opacity="0.85"></ellipse><circle cx="40" cy="72" r="2.2" fill="#e8a3a0"></circle></svg>
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Ms Madi', cursive; font-size: 4.7cqw; color: #062b1f; padding-bottom: 0.6cqw">R&amp;J</span>
+              </div>
+              <span style="font-family: 'Courier Prime', monospace; text-transform: uppercase; color: #6b5a48; font-size: 2.6cqw; letter-spacing: 0.3em">Together with their families</span>
+              <div style="display: flex; flex-direction: column; align-items: center; line-height: 0.95; margin: 0.4cqw 0">
+                <span style="font-family: 'Italiana', serif; font-size: 8.8cqw; color: #062b1f">Rio</span>
+                <span style="font-family: 'Ms Madi', cursive; font-size: 5.4cqw; color: #6b0d12; line-height: 0.8">and</span>
+                <span style="font-family: 'Italiana', serif; font-size: 8.8cqw; color: #062b1f">Jay</span>
+              </div>
+              <span style="font-family: 'Spectral', serif; font-style: italic; font-size: 3.3cqw; line-height: 1.4; color: #33443b; max-width: 84%">request the pleasure of your company at the celebration of their marriage</span>
+              <div style="width: 22cqw; height: 1px; background: #c9b79f; margin: 0.4cqw 0"></div>
+              <span style="font-family: 'Courier Prime', monospace; text-transform: uppercase; color: #6b5a48; font-size: 3cqw; letter-spacing: 0.2em; color: #062b1f; font-weight: 700">Sunday · December 20, 2026</span>
+              <span style="font-family: 'Spectral', serif; font-size: 3.4cqw; color: #33443b">four o'clock in the afternoon</span>
+              <span style="font-family: 'Courier Prime', monospace; text-transform: uppercase; color: #6b5a48; font-size: 2.7cqw; letter-spacing: 0.22em">The VFarm Bamban · Tarlac</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- envelope front pocket -->
+        <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 40%; z-index: 3; background: #efe7d8; border-radius: 10px; clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%)"></div>
+        <!-- flap -->
+        <div class="env" style="position: absolute; left: 0; right: 0; bottom: 0; height: 40%; z-index: 4; pointer-events: none">
+          <div class="flap" style="position: absolute; left: 0; right: 0; top: 0; height: 58%; background: #e2d6c1; border-radius: 10px 10px 0 0; clip-path: polygon(0 0, 100% 0, 50% 100%)"></div>
+        </div>
+        <!-- RSVP insert -->
+        <div class="ins-rsvp" style="aspect-ratio: 7 / 5; background: #eef3ee; border-radius: 3px; box-shadow: 0 10px 22px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1cqw; box-sizing: border-box; padding: 3cqw; border: 1px solid #c8d8cd">
+          <span style="font-family: 'Italiana', serif; font-size: 6cqw; line-height: 1; color: #062b1f">RSVP</span>
+          <span style="font-family: 'Ms Madi', cursive; font-size: 4.4cqw; line-height: 1; color: #6b0d12">kindly reply by</span>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 2.6cqw; letter-spacing: 0.16em; text-transform: uppercase; color: #33443b; font-weight: 700">November 1, 2026</span>
+        </div>
+
+        <!-- vellum insert -->
+        <div class="ins-vel" style="aspect-ratio: 5 / 3; background: rgba(251,248,242,0.9); border: 1px solid #e6dccb; border-radius: 3px; box-shadow: 0 10px 22px rgba(0,0,0,0.22); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6cqw; box-sizing: border-box; padding: 3cqw; position: absolute">
+          <div style="position: absolute; left: 0; right: 0; top: 46%; height: 3.2cqw; background: #6b0d12; opacity: 0.85"></div>
+          <span style="position: relative; font-family: 'Ms Madi', cursive; font-size: 5.6cqw; line-height: 1; color: #062b1f; background: rgba(251,248,242,0.95); padding: 0 2cqw; border-radius: 2px">12 · 20 · 26</span>
+        </div>
+        <button type="button" class="seal" data-action="openBtn" aria-label="Open the invitation" style="position: absolute; left: 50%; top: 83.2%; width: 78px; height: 78px; margin: -39px 0 0 -39px; z-index: 5; border-radius: 50%; border: 2px solid rgba(243,239,230,0.35); background: #6b0d12; color: #f3efe6; font-family: 'Ms Madi', cursive; font-size: 30px; line-height: 1; cursor: pointer">R&amp;J</button>
+        <span class="pb" style="--x: -183px; --y: -171px; --r: -12deg; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: #f3d9d6; animation-delay: 0.62s"></span>
+        <span class="pb" style="--x: -171px; --y: -205px; --r: -113deg; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: #fbf8f2; animation-delay: 0.63s"></span>
+        <span class="pb" style="--x: -84px; --y: -112px; --r: 299deg; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: #d5ebe0; animation-delay: 0.60s"></span>
+        <span class="pb" style="--x: -198px; --y: -168px; --r: -257deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #f3d9a4; animation-delay: 0.60s"></span>
+        <span class="pb" style="--x: 246px; --y: -93px; --r: 152deg; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: #e8a3a0; animation-delay: 0.46s"></span>
+        <span class="pb" style="--x: -89px; --y: -201px; --r: 77deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #f3d9d6; animation-delay: 0.46s"></span>
+        <span class="pb" style="--x: 86px; --y: -128px; --r: 164deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #fbf8f2; animation-delay: 0.51s"></span>
+        <span class="pb" style="--x: 108px; --y: -173px; --r: -109deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #d5ebe0; animation-delay: 0.68s"></span>
+        <span class="pb" style="--x: -20px; --y: -270px; --r: -98deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #f3d9a4; animation-delay: 0.52s"></span>
+        <span class="pb" style="--x: 258px; --y: -117px; --r: -228deg; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: #e8a3a0; animation-delay: 0.49s"></span>
+        <span class="pb" style="--x: -16px; --y: -272px; --r: 49deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #f3d9d6; animation-delay: 0.77s"></span>
+        <span class="pb" style="--x: 167px; --y: -120px; --r: 162deg; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: #fbf8f2; animation-delay: 0.63s"></span>
+        <span class="pb" style="--x: -94px; --y: -196px; --r: -273deg; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: #d5ebe0; animation-delay: 0.74s"></span>
+        <span class="pb" style="--x: -188px; --y: -171px; --r: -298deg; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: #f3d9a4; animation-delay: 0.62s"></span>
+        <span class="pb" style="--x: 32px; --y: -258px; --r: 285deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #e8a3a0; animation-delay: 0.66s"></span>
+        <span class="pb" style="--x: 33px; --y: -237px; --r: -126deg; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: #f3d9d6; animation-delay: 0.67s"></span>
+      </div>
+
+      <div data-if="introClosed" class="dc">
+        <button type="button" data-action="openBtn" style="position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; border-radius: 999px; border: 0; background: #d5ebe0; color: #062b1f; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Tap anywhere to open</button>
+      </div>
+      <div data-if="introOpen" class="dc" hidden>
+        <button type="button" class="stepin" data-action="enterBtn" style="position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; border-radius: 999px; border: 0; background: #fbf8f2; color: #062b1f; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Step inside →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFETTI -->
+  <div data-if="confetti" class="dc" hidden>
+    <div aria-hidden="true" style="position: fixed; inset: 0; z-index: 200; pointer-events: none; overflow: hidden">
+      <span class="cf" style="left: 33.1%; width: 6px; height: 14px; background: #d5ebe0; animation-delay: 0.59s; animation-duration: 2.29s"></span>
+      <span class="cf" style="left: 53.4%; width: 8px; height: 18px; background: #e8a3a0; animation-delay: 0.05s; animation-duration: 2.81s"></span>
+      <span class="cf" style="left: 5.6%; width: 8px; height: 14px; background: #f3d9a4; animation-delay: 0.06s; animation-duration: 2.31s"></span>
+      <span class="cf" style="left: 42.8%; width: 10px; height: 10px; background: #a58467; animation-delay: 0.85s; animation-duration: 2.96s"></span>
+      <span class="cf" style="left: 58.0%; width: 6px; height: 18px; background: #fbf8f2; animation-delay: 0.53s; animation-duration: 2.26s"></span>
+      <span class="cf" style="left: 23.2%; width: 10px; height: 10px; background: #6b0d12; animation-delay: 0.26s; animation-duration: 2.37s"></span>
+      <span class="cf" style="left: 13.3%; width: 8px; height: 18px; background: #d5ebe0; animation-delay: 0.73s; animation-duration: 2.42s"></span>
+      <span class="cf" style="left: 57.8%; width: 10px; height: 10px; background: #e8a3a0; animation-delay: 0.34s; animation-duration: 2.86s"></span>
+      <span class="cf" style="left: 8.0%; width: 6px; height: 18px; background: #f3d9a4; animation-delay: 0.19s; animation-duration: 3.02s"></span>
+      <span class="cf" style="left: 43.0%; width: 8px; height: 14px; background: #a58467; animation-delay: 0.53s; animation-duration: 2.74s"></span>
+      <span class="cf" style="left: 30.8%; width: 6px; height: 18px; background: #fbf8f2; animation-delay: 0.7s; animation-duration: 2.3s"></span>
+      <span class="cf" style="left: 30.8%; width: 8px; height: 14px; background: #6b0d12; animation-delay: 0.66s; animation-duration: 2.55s"></span>
+      <span class="cf" style="left: 96.1%; width: 6px; height: 18px; background: #d5ebe0; animation-delay: 0.38s; animation-duration: 3.11s"></span>
+      <span class="cf" style="left: 16.6%; width: 8px; height: 14px; background: #e8a3a0; animation-delay: 0.04s; animation-duration: 3.0s"></span>
+      <span class="cf" style="left: 75.4%; width: 10px; height: 14px; background: #f3d9a4; animation-delay: 0.31s; animation-duration: 2.62s"></span>
+      <span class="cf" style="left: 49.7%; width: 8px; height: 10px; background: #a58467; animation-delay: 0.76s; animation-duration: 3.33s"></span>
+      <span class="cf" style="left: 47.5%; width: 10px; height: 10px; background: #fbf8f2; animation-delay: 0.05s; animation-duration: 3.04s"></span>
+      <span class="cf" style="left: 64.1%; width: 10px; height: 14px; background: #6b0d12; animation-delay: 0.26s; animation-duration: 2.66s"></span>
+      <span class="cf" style="left: 66.2%; width: 6px; height: 14px; background: #d5ebe0; animation-delay: 0.32s; animation-duration: 2.93s"></span>
+      <span class="cf" style="left: 49.4%; width: 6px; height: 14px; background: #e8a3a0; animation-delay: 0.12s; animation-duration: 2.5s"></span>
+      <span class="cf" style="left: 39.5%; width: 8px; height: 10px; background: #f3d9a4; animation-delay: 0.15s; animation-duration: 2.68s"></span>
+      <span class="cf" style="left: 28.7%; width: 6px; height: 14px; background: #a58467; animation-delay: 0.78s; animation-duration: 2.53s"></span>
+      <span class="cf" style="left: 41.9%; width: 8px; height: 18px; background: #fbf8f2; animation-delay: 0.8s; animation-duration: 3.35s"></span>
+      <span class="cf" style="left: 16.5%; width: 6px; height: 10px; background: #6b0d12; animation-delay: 0.21s; animation-duration: 2.48s"></span>
+      <span class="cf" style="left: 48.6%; width: 10px; height: 10px; background: #d5ebe0; animation-delay: 0.24s; animation-duration: 2.2s"></span>
+      <span class="cf" style="left: 42.2%; width: 8px; height: 18px; background: #e8a3a0; animation-delay: 0.51s; animation-duration: 3.34s"></span>
+      <span class="cf" style="left: 68.3%; width: 10px; height: 18px; background: #f3d9a4; animation-delay: 0.59s; animation-duration: 3.09s"></span>
+      <span class="cf" style="left: 45.8%; width: 10px; height: 18px; background: #a58467; animation-delay: 0.35s; animation-duration: 2.68s"></span>
+      <span class="cf" style="left: 11.9%; width: 10px; height: 14px; background: #fbf8f2; animation-delay: 0.06s; animation-duration: 2.28s"></span>
+      <span class="cf" style="left: 22.0%; width: 6px; height: 10px; background: #6b0d12; animation-delay: 0.31s; animation-duration: 2.26s"></span>
+      <span class="cf" style="left: 2.0%; width: 6px; height: 18px; background: #d5ebe0; animation-delay: 0.09s; animation-duration: 2.64s"></span>
+      <span class="cf" style="left: 4.4%; width: 6px; height: 18px; background: #e8a3a0; animation-delay: 0.34s; animation-duration: 2.96s"></span>
+    </div>
+  </div>
+
+
+  <!-- NAV -->
+  <nav style="position: sticky; top: 0; z-index: 10; background: rgba(6,43,31,0.94); border-bottom: 1px solid #245442">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 12px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px">
+      <a href="#top" style="font-family: 'Italiana', serif; font-size: 24px; letter-spacing: 0.08em; text-decoration: none; color: #f3efe6">R <span style="font-family: 'Ms Madi', cursive; color: #d5ebe0; font-size: 26px">&amp;</span> J</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 4px 18px; font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase"><br>
+        <a href="#rsvp" style="text-decoration: none; color: rgb(6, 43, 31); background: rgb(213, 235, 224); padding: 2px 12px; border-radius: 999px">RSVP</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <!-- PETALS -->
+  <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 1040px; overflow: hidden; pointer-events: none; z-index: 0">
+    <span class="petal" style="position: absolute; top: -30px; left: 43.0%; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: rgba(243,217,214,0.6); animation-delay: 7.8s; animation-duration: 18.4s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 42.9%; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: rgba(213,235,224,0.55); animation-delay: 12.0s; animation-duration: 12.5s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 45.2%; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: rgba(251,248,242,0.55); animation-delay: 8.6s; animation-duration: 12.5s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 28.8%; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: rgba(243,217,164,0.5); animation-delay: 1.3s; animation-duration: 17.5s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 60.3%; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: rgba(243,217,214,0.6); animation-delay: 8.3s; animation-duration: 14.2s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 62.1%; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: rgba(213,235,224,0.55); animation-delay: 8.6s; animation-duration: 12.3s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 79.0%; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: rgba(251,248,242,0.55); animation-delay: 0.9s; animation-duration: 11.3s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 57.0%; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: rgba(243,217,164,0.5); animation-delay: 10.9s; animation-duration: 13.6s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 80.0%; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: rgba(243,217,214,0.6); animation-delay: 7.3s; animation-duration: 16.1s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 0.4%; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: rgba(213,235,224,0.55); animation-delay: 1.2s; animation-duration: 16.2s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 94.8%; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: rgba(251,248,242,0.55); animation-delay: 13.9s; animation-duration: 17.7s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 24.1%; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: rgba(243,217,164,0.5); animation-delay: 10.6s; animation-duration: 15.1s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 6.7%; width: 10px; height: 14px; border-radius: 80% 0 80% 0; background: rgba(243,217,214,0.6); animation-delay: 10.7s; animation-duration: 14.2s"></span>
+    <span class="petal" style="position: absolute; top: -30px; left: 36.7%; width: 8px; height: 11px; border-radius: 80% 0 80% 0; background: rgba(213,235,224,0.55); animation-delay: 13.4s; animation-duration: 17.8s"></span>
+  </div>
+  <header id="top" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 72px 20px 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: center">
+    <div style="display: flex; flex-direction: column; gap: 22px">
+      <p style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #a9c4b7">You're invited to the wedding of</p>
+      <h1 class="ttl" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(76px, 11vw, 148px); line-height: 0.9; letter-spacing: 0.02em; color: #f3efe6"><span class="w" style="transition-delay: 0.1s">Rio</span><br><span class="w" style="transition-delay: 0.45s; font-family: 'Ms Madi', cursive; font-size: 0.5em; color: #d5ebe0; padding-left: 0.6em">and</span> <span class="w" style="transition-delay: 0.8s">Jay</span></h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; font-family: 'Courier Prime', monospace; font-size: 15px; letter-spacing: 0.08em; color: #f3efe6; width: 449px; max-width: 100%; text-align: center">
+        <span style="font-size: 22px; letter-spacing: 0.3em">12.20.26</span>
+        <span style="color: #a9c4b7">Sunday · 4:00 PM · The VFarm Bamban, Tarlac</span>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+          <div class="tile" style="position: relative; min-width: 74px; padding: 12px 12px 10px; border-radius: 10px; background: #0d3a2b; border: 1px solid #245442; box-sizing: border-box; text-align: center; font-family: 'Italiana', serif; font-size: 42px; line-height: 1; color: #d5ebe0; font-variant-numeric: tabular-nums" data-cd="days">&nbsp;</div>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #a9c4b7">days</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+          <div class="tile" style="position: relative; min-width: 74px; padding: 12px 12px 10px; border-radius: 10px; background: #0d3a2b; border: 1px solid #245442; box-sizing: border-box; text-align: center; font-family: 'Italiana', serif; font-size: 42px; line-height: 1; color: #d5ebe0; font-variant-numeric: tabular-nums" data-cd="hours">&nbsp;</div>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #a9c4b7">hours</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+          <div class="tile" style="position: relative; min-width: 74px; padding: 12px 12px 10px; border-radius: 10px; background: #0d3a2b; border: 1px solid #245442; box-sizing: border-box; text-align: center; font-family: 'Italiana', serif; font-size: 42px; line-height: 1; color: #d5ebe0; font-variant-numeric: tabular-nums" data-cd="mins">&nbsp;</div>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #a9c4b7">minutes</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+          <div class="tile" style="position: relative; min-width: 74px; padding: 12px 12px 10px; border-radius: 10px; background: #0d3a2b; border: 1px solid #245442; box-sizing: border-box; text-align: center; font-family: 'Italiana', serif; font-size: 42px; line-height: 1; color: #d5ebe0; font-variant-numeric: tabular-nums" data-cd="secs">&nbsp;</div>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #a9c4b7">seconds</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px">
+        <a href="#rsvp" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 999px; background: #d5ebe0; color: #062b1f; text-decoration: none; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">RSVP now</a>
+        <a href="#day" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 999px; border: 1px solid #a9c4b7; color: #f3efe6; text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">See the day</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rio+%26+Jay%27s+Wedding&amp;dates=20261220T080000Z/20261220T150000Z&amp;location=The+VFarm+Bamban,+Bamban,+Tarlac&amp;details=Guest+arrival+at+4:00+PM.+Map:+https://maps.app.goo.gl/Hsd22ERwynX1Ghrp9" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; color: #d5ebe0; text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"></path></svg>Save the date</a>
+      </div>
+    </div>
+
+    <!-- polaroid cluster -->
+    <div data-rv="hero"  style="position: relative; width: 100%; max-width: 480px; height: 500px; justify-self: center">
+      <div class="drop sway" style="animation-delay: -1.9s; transition-delay: 0.15s; position: absolute; left: 0; top: 40px; width: 58%; background: #fbf8f2; padding: 10px 10px 40px; box-shadow: 0 18px 40px rgba(0,0,0,0.35); transform: rotate(-6deg)">
+        <img src="images/arm-in-arm.jpg" alt="Rio and Jay walking arm in arm in Taipei" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%; display: block">
+        <div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: 'Ms Madi', cursive; font-size: 26px; color: #15261f">Taipei</div>
+      </div>
+      <div class="drop sway" style="animation-delay: -3.8s; transition-delay: 0.40s; position: absolute; right: 0; top: 0; width: 58%; background: #fbf8f2; padding: 10px 10px 40px; box-shadow: 0 18px 40px rgba(0,0,0,0.35); transform: rotate(5deg)">
+        <img src="images/street-sign.jpg" alt="Rio and Jay by a street sign in Taipei" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; display: block">
+        <div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: 'Ms Madi', cursive; font-size: 26px; color: #15261f">us, always</div>
+      </div>
+      <div class="drop sway" style="animation-delay: -5.7s; transition-delay: 0.65s; position: absolute; left: 22%; bottom: 0; width: 52%; background: #fbf8f2; padding: 10px 10px 40px; box-shadow: 0 18px 40px rgba(0,0,0,0.4); transform: rotate(-1deg)">
+        <img src="images/ring.jpg" alt="Jay holding Rio's hand, showing her engagement ring" style="width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: 45% 50%; display: block">
+        <div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: 'Ms Madi', cursive; font-size: 26px; color: #6b0d12">12.20.26</div>
+      </div>
+      <div class="drop sway" style="animation-delay: -7.6s; transition-delay: 0.90s; position: absolute; right: 4%; bottom: 46px; width: 96px; height: 96px; border-radius: 50%; background: #6b0d12; color: #f3efe6; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(12deg); box-shadow: 0 8px 20px rgba(0,0,0,0.35); font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; line-height: 1.35; text-transform: uppercase; border: 2px dashed rgba(243,239,230,0.5)">By<br>invitation<br>only</div>
+    </div>
+  </header>
+
+
+  <!-- LETTER -->
+  <section style="background: #fbf8f2; color: #15261f; padding: 88px 20px">
+    <div data-rv="letter" class="rv-up" style="max-width: 680px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; gap: 22px">
+      <p style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #8a6a50">A note from us</p>
+      <p style="margin: 0; font-size: 21px; line-height: 1.65">As we prepare to exchange our vows, we wanted our wedding to be more than just an event. We wanted it to be a celebration shared with the people who have witnessed our story, supported our relationship, and helped shape who we are today.</p>
+      <p style="margin: 0; font-size: 21px; line-height: 1.65">If you're receiving this invitation, please know that your presence in our lives means more than words can express. Thank you for being part of our story.</p>
+      <p style="margin: 0; font-size: 21px; font-style: italic">We can't wait to celebrate with you.</p>
+      <p style="margin: 6px 0 0; font-family: 'Ms Madi', cursive; font-size: 48px; line-height: 1; color: #0d3a2b">Rio &amp; Jay</p>
+    </div>
+  </section>
+
+  <!-- THE DAY -->
+  <section id="day" style="padding: 96px 20px">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">01 · THE DAY</span>
+        <h2 data-rv="h1" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">Where &amp; when</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: stretch">
+        <!-- venue -->
+        <div style="background: #fbf8f2; color: #15261f; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+          <img src="images/the-shed.jpg" alt="Aerial view of The Shed at The VFarm Bamban, lit up at night" style="width: 100%; aspect-ratio: 1200 / 1366; object-fit: cover; display: block">
+          <div style="padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 14px">
+            <div>
+              <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: 36px; line-height: 1.1">The VFarm Bamban</h3>
+              <p style="margin: 2px 0 0; font-family: 'Courier Prime', monospace; font-size: 14px; color: #64726a">Bamban, Tarlac · Sunday, December 20, 2026</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px">
+              <div style="background: #f2ece1; border-radius: 12px; padding: 12px 14px">
+                <div style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a50">Ceremony</div>
+                <div style="font-weight: 600">In the garden</div>
+              </div>
+              <div style="background: #f2ece1; border-radius: 12px; padding: 12px 14px">
+                <div style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a50">Reception</div>
+                <div style="font-weight: 600">At The Shed</div>
+              </div>
+              <div style="background: #f2ece1; border-radius: 12px; padding: 12px 14px">
+                <div style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a50">Parking</div>
+                <div style="font-weight: 600">Available onsite</div>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/Hsd22ERwynX1Ghrp9" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 22px; border-radius: 999px; background: #062b1f; color: #f3efe6; text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+              Open in Google Maps
+            </a>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rio+%26+Jay%27s+Wedding&amp;dates=20261220T080000Z/20261220T150000Z&amp;location=The+VFarm+Bamban,+Bamban,+Tarlac&amp;details=Guest+arrival+at+4:00+PM.+Map:+https://maps.app.goo.gl/Hsd22ERwynX1Ghrp9" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #c9bfae; color: #062b1f; text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase">+ Google Calendar</a>
+              <a href="#" data-ics download="rio-and-jay-wedding.ics" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #c9bfae; color: #062b1f; text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase">+ Apple / Outlook</a>
+            </div>
+          </div>
+        </div>
+        <!-- timeline -->
+        <div style="background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column">
+          <h3 style="margin: 0 0 10px; font-family: 'Italiana', serif; font-weight: 400; font-size: 36px">The timeline</h3>
+          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
+            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">4:00 PM</span><span style="font-size: 19px">Guest arrival</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
+            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">4:30 PM</span><span style="font-size: 19px">Wedding ceremony</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
+            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">5:30 PM</span><span style="font-size: 19px">Cocktail hour</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
+            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">6:30 PM</span><span style="font-size: 19px">Reception &amp; dinner</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
+            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">8:00 PM</span><span style="font-size: 19px">Lights of Gratitude</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; align-items: baseline">
+            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">8:30 PM</span><span style="font-size: 19px">After party</span>
+          </div>
+          <div style="flex: 1 1 auto; min-height: 200px; margin-top: 16px; border-radius: 12px; overflow: hidden; position: relative">
+            <img src="images/ceremony-chairs.jpg" alt="White ceremony chairs on the grass with a bouquet of white roses and greenery" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 45%; display: block">
+          </div>
+          <p style="margin: 14px 0 0; padding: 16px 18px; background: #d5ebe0; color: #062b1f; border-radius: 12px; font-size: 15px; line-height: 1.55"><strong>Please arrive on time.</strong> One of the greatest gifts you can give us is your presence from beginning to end. We've planned every part of the day, and it would mean the world to share those moments with you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section id="expect" style="font-family: 'Spectral', Georgia, serif; font-size: 17px; line-height: 1.6; color: #15261f">
+
+  <!-- HEADER: afternoon -->
+  <div style="background: linear-gradient(180deg, #fbf8f2, #f7f2e8); padding: 64px 20px 20px; text-align: center">
+    <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#a58467" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">02 · WHAT TO EXPECT</span>
+      <h2 data-rv="h2" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.03em; color: #062b1f">From golden hour<br>to starlight</h2>
+      <p style="margin: 10px 0 0; color: #4b5a52; max-width: 560px">One evening, six moments. Scroll with us as the afternoon turns into night, and you'll see why we'd love you to stay for all of it.</p>
+    </div>
+  </div>
+
+  <!-- 1 · ARRIVAL -->
+  <div data-rv="e1"  style="background: linear-gradient(180deg, #f7f2e8, #eef1e7)">
+    <div style="max-width: 1040px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: clamp(92px, 24vw, 330px) 40px minmax(0, 1fr); column-gap: clamp(10px, 3vw, 40px)">
+      <div class="fade" style="padding: 26px 0; text-align: right">
+        <div style="font-family: 'Italiana', serif; font-size: clamp(36px, 5vw, 64px); line-height: 0.9; color: #062b1f">4:00</div>
+        <div style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #8a6a50">PM</div>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center">
+        <div class="ln" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: #cdbba6"></div>
+        <div class="dot" style="position: relative; margin-top: 40px; width: 18px; height: 18px; border-radius: 50%; background: #fbf8f2; border: 2px solid #062b1f; box-sizing: border-box"></div>
+      </div>
+      <div class="fade" style="padding: 26px 0; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a6a50">Golden hour</span>
+        <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.05; color: #062b1f">Guest Arrival</h3>
+        <p style="margin: 0; max-width: 520px; color: #33443b">Please be here by 4:00 so you can get seated, grab a cool refreshment and settle in while the entourage lines up and we get everything ready. We start right on time.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · CEREMONY -->
+  <div data-rv="e2"  style="background: linear-gradient(180deg, #eef1e7, #e1eee5)">
+    <div style="max-width: 1040px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: clamp(92px, 24vw, 330px) 40px minmax(0, 1fr); column-gap: clamp(10px, 3vw, 40px)">
+      <div class="fade" style="padding: 26px 0; text-align: right">
+        <div style="font-family: 'Italiana', serif; font-size: clamp(36px, 5vw, 64px); line-height: 0.9; color: #062b1f">4:30</div>
+        <div style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #8a6a50">PM</div>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center">
+        <div class="ln" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: #b9c6b6"></div>
+        <div class="dot" style="position: relative; margin-top: 40px; width: 18px; height: 18px; border-radius: 50%; background: #062b1f; box-sizing: border-box"></div>
+      </div>
+      <div class="fade" style="padding: 26px 0; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a6a50">In the garden</span>
+        <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.05; color: #062b1f">The Ceremony</h3>
+        <p style="margin: 0; max-width: 520px; color: #33443b">We say "I do" under the open sky, surrounded by the people who matter most to us. Phones down, hearts open.</p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 4px">
+          <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a50; margin-right: 4px">Bring</span>
+          <span style="padding: 4px 12px; border-radius: 999px; background: rgba(6,43,31,0.07); border: 1px solid rgba(6,43,31,0.14); font-size: 14px; color: #24372e">Comfortable shoes for grass</span>
+          <span style="padding: 4px 12px; border-radius: 999px; background: rgba(6,43,31,0.07); border: 1px solid rgba(6,43,31,0.14); font-size: 14px; color: #24372e">Sunglasses</span>
+          <span style="padding: 4px 12px; border-radius: 999px; background: rgba(6,43,31,0.07); border: 1px solid rgba(6,43,31,0.14); font-size: 14px; color: #24372e">Light touch-up essentials</span>
+        </div>
+        <p style="margin: 0; max-width: 520px; font-size: 15px; color: #4b5a52">Refreshments and drinking water will be on hand throughout.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 · COCKTAIL HOUR -->
+  <div data-rv="e3"  style="background: linear-gradient(180deg, #e1eee5, #6f9a86)">
+    <div style="max-width: 1040px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: clamp(92px, 24vw, 330px) 40px minmax(0, 1fr); column-gap: clamp(10px, 3vw, 40px)">
+      <div class="fade" style="padding: 26px 0; text-align: right">
+        <div style="font-family: 'Italiana', serif; font-size: clamp(36px, 5vw, 64px); line-height: 0.9; color: #062b1f">5:30</div>
+        <div style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #4b5a52">PM</div>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center">
+        <div class="ln" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: #8fb2a1"></div>
+        <div class="dot" style="position: relative; margin-top: 40px; width: 18px; height: 18px; border-radius: 50%; background: #062b1f; box-sizing: border-box"></div>
+      </div>
+      <div class="fade" style="padding: 26px 0; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #3d5a4c">Mingle &amp; nibble</span>
+        <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.05; color: #062b1f">Cocktail Hour</h3>
+        <p style="margin: 0; max-width: 520px; color: #24372e">Catch up, wander and explore. We've set up plenty of booths to keep you company, with appetizers going around while you meet everyone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · RECEPTION -->
+  <div data-rv="e4"  style="background: linear-gradient(180deg, #6f9a86, #2a5a46); color: #ffffff">
+    <div style="max-width: 1040px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: clamp(92px, 24vw, 330px) 40px minmax(0, 1fr); column-gap: clamp(10px, 3vw, 40px)">
+      <div class="fade" style="padding: 26px 0; text-align: right">
+        <div style="font-family: 'Italiana', serif; font-size: clamp(36px, 5vw, 64px); line-height: 0.9; color: #f3efe6">6:30</div>
+        <div style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #e2ece6">PM</div>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center">
+        <div class="ln" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: #8fb2a1"></div>
+        <div class="dot" style="position: relative; margin-top: 40px; width: 18px; height: 18px; border-radius: 50%; background: #d5ebe0; box-sizing: border-box"></div>
+      </div>
+      <div class="fade" style="padding: 26px 0; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #eaf3ee">Dinner at The Shed</span>
+        <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.05; color: #f3efe6">Reception &amp; Dinner</h3>
+        <p style="margin: 0; max-width: 520px; color: #f3f7f4">A simple, heartfelt celebration over dinner, with speeches, our first dances and the Prosperity Activity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · LIGHTS OF GRATITUDE -->
+  <div data-rv="e5"  style="background: linear-gradient(180deg, #2a5a46, #0f3a2a); color: #f3efe6; position: relative; overflow: hidden">
+    <div class="flicker" style="position: absolute; left: 50%; top: 50%; width: 480px; height: 480px; margin: -240px 0 0 -100px; border-radius: 50%; background: radial-gradient(circle, rgba(243,199,122,0.22), rgba(243,199,122,0) 65%)"></div>
+    <div class="tw" style="animation-delay: 0.55s; position: absolute; left: 8%; top: 22%; width: 3px; height: 3px; border-radius: 50%; background: #f3efe6; opacity: 0.6"></div>
+    <div class="tw" style="animation-delay: 1.10s; position: absolute; left: 18%; top: 64%; width: 2px; height: 2px; border-radius: 50%; background: #f3efe6; opacity: 0.5"></div>
+    <div class="tw" style="animation-delay: 1.65s; position: absolute; right: 9%; top: 18%; width: 3px; height: 3px; border-radius: 50%; background: #f3efe6; opacity: 0.7"></div>
+    <div class="tw" style="animation-delay: 2.20s; position: absolute; right: 22%; top: 78%; width: 2px; height: 2px; border-radius: 50%; background: #f3efe6; opacity: 0.5"></div>
+    <div style="position: relative; max-width: 1040px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: clamp(92px, 24vw, 330px) 40px minmax(0, 1fr); column-gap: clamp(10px, 3vw, 40px)">
+      <div class="fade" style="padding: 30px 0; text-align: right">
+        <div style="font-family: 'Italiana', serif; font-size: clamp(36px, 5vw, 64px); line-height: 0.9; color: #f3d9a4">8:00</div>
+        <div style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #e6d3a8">PM</div>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center">
+        <div class="ln" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: #4f7c69"></div>
+        <div class="dot flicker" style="position: relative; margin-top: 46px; width: 18px; height: 18px; border-radius: 50%; background: #f3d9a4; box-shadow: 0 0 16px 6px rgba(243,199,122,0.55); box-sizing: border-box; animation-duration: 2.2s"></div>
+      </div>
+      <div class="fade" style="padding: 30px 0; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #f3d9a4">After dark · candlelight &amp; fireworks</span>
+        <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.05; color: #fff8ea">Lights of Gratitude</h3>
+        <p style="margin: 0; max-width: 520px; color: #e6e2d6">We'll step back outdoors under the night sky for a candle ceremony of thanksgiving, then watch the fireworks light it all up.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 · AFTER PARTY -->
+  <div data-rv="e6"  style="background: linear-gradient(180deg, #0f3a2a, #03160e); color: #f3efe6; position: relative; overflow: hidden">
+    <div class="tw" style="animation-delay: 2.75s; position: absolute; left: 6%; top: 12%; width: 3px; height: 3px; border-radius: 50%; background: #f3efe6; opacity: 0.7"></div>
+    <div class="tw" style="animation-delay: 0.10s; position: absolute; left: 14%; top: 46%; width: 2px; height: 2px; border-radius: 50%; background: #f3efe6; opacity: 0.5"></div>
+    <div class="tw" style="animation-delay: 0.65s; position: absolute; left: 4%; top: 80%; width: 3px; height: 3px; border-radius: 50%; background: #f3efe6; opacity: 0.6"></div>
+    <div class="tw" style="animation-delay: 1.20s; position: absolute; right: 6%; top: 60%; width: 2px; height: 2px; border-radius: 50%; background: #f3efe6; opacity: 0.6"></div>
+    <div class="tw" style="animation-delay: 1.75s; position: absolute; right: 14%; top: 88%; width: 3px; height: 3px; border-radius: 50%; background: #f3efe6; opacity: 0.5"></div>
+    <svg class="fw" style="position: absolute; right: 3%; top: 4%; width: clamp(140px, 22vw, 280px); height: auto; opacity: 0.55" viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-width="2.5">
+      <g stroke="#d5ebe0"><path d="M100 70V40"></path><path d="M100 130v30"></path><path d="M70 100H40"></path><path d="M130 100h30"></path></g>
+      <g stroke="#e8a3a0"><path d="M79 79 58 58"></path><path d="M121 121l21 21"></path><path d="M121 79l21-21"></path><path d="M79 121l-21 21"></path></g>
+      <g stroke="#f3d9a4"><path d="M100 22v-6"></path><path d="M100 184v-6"></path><path d="M22 100h-6"></path><path d="M184 100h-6"></path></g>
+    </svg>
+    <div style="position: relative; max-width: 1040px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: clamp(92px, 24vw, 330px) 40px minmax(0, 1fr); column-gap: clamp(10px, 3vw, 40px)">
+      <div class="fade" style="padding: 34px 0; text-align: right">
+        <div style="font-family: 'Italiana', serif; font-size: clamp(36px, 5vw, 64px); line-height: 0.9; color: #d5ebe0">8:30</div>
+        <div style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #a9c4b7">PM</div>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center">
+        <div class="ln" style="position: absolute; top: 0; height: 56px; left: 50%; width: 2px; margin-left: -1px; background: #3c6455"></div>
+        <div class="dot" style="position: relative; margin-top: 40px; width: 30px; height: 30px; border-radius: 50%; background: #d5ebe0; box-shadow: 0 0 0 8px rgba(213,235,224,0.15), 0 0 0 16px rgba(213,235,224,0.07); box-sizing: border-box"></div>
+      </div>
+      <div class="fade" style="padding: 34px 0 64px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d5ebe0">The grand finale</span>
+        <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(44px, 6vw, 72px); line-height: 0.95; color: #ffffff">The After Party</h3>
+        <div style="font-family: 'Ms Madi', cursive; font-size: clamp(28px, 3.6vw, 40px); line-height: 1; color: #e8a3a0">stay till the very last song</div>
+        <p style="margin: 8px 0 0; max-width: 560px; color: #e0e7e2">Please don't think of this as an extra. It's the part of our wedding we've poured the most time, love and planning into. Once the formal moments are done, the music starts: live bands, entertainment, and a dance floor that's all yours.</p>
+        <p style="margin: 0; max-width: 560px; color: #e0e7e2">Truth is, we're not really formal people. This is how we want to end our day: letting loose, with everyone special in our lives still there, from the very first moment to the very last song.</p>
+        <a href="#rsvp" style="align-self: flex-start; margin-top: 10px; display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 999px; background: #d5ebe0; color: #062b1f; text-decoration: none; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">Count me in · RSVP</a>
+      </div>
+    </div>
+  </div>
+
+</section><!-- THE MUSIC -->
+  <section id="music" style="background: #03160e; padding: 40px 20px 104px">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px">
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">03 · THE MUSIC</span>
+        <h2 data-rv="hm" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em; color: #f3efe6">The sound of our night</h2>
+        <p style="margin: 6px 0 0; color: #a9c4b7; max-width: 600px">Some of our favorite musicians will be with us, from the very first note to the very last song.</p>
+      </div>
+      <div data-rv="music"  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 40px 28px">
+        <figure class="drop" style="margin: 0; transition-delay: 0.1s">
+          <div style="position: relative; overflow: hidden; transform: rotate(-2deg); box-shadow: 0 18px 40px rgba(0,0,0,0.45)">
+            <img src="images/strings-of-serenity.jpg" alt="Strings of Serenity performing on violin" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.88) 100%); pointer-events: none"></div>
+            <figcaption style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.2em; color: #d5ebe0">01</span>
+              <span style="font-family: 'Italiana', serif; font-size: clamp(28px, 3vw, 34px); line-height: 1.05; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5)">Strings of Serenity</span>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="drop" style="margin: 0; transition-delay: 0.3s">
+          <div style="position: relative; overflow: hidden; transform: rotate(1.5deg); box-shadow: 0 18px 40px rgba(0,0,0,0.45)">
+            <img src="images/nina-pallera.jpg" alt="Nina Pallera" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.88) 100%); pointer-events: none"></div>
+            <figcaption style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.2em; color: #d5ebe0">02</span>
+              <span style="font-family: 'Italiana', serif; font-size: clamp(28px, 3vw, 34px); line-height: 1.05; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5)">Nina Pallera</span>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="drop" style="margin: 0; transition-delay: 0.5s">
+          <div style="position: relative; overflow: hidden; transform: rotate(-1.5deg); box-shadow: 0 18px 40px rgba(0,0,0,0.45)">
+            <img src="images/less-talk.jpg" alt="The band Less Talk in a recording studio" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.88) 100%); pointer-events: none"></div>
+            <figcaption style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.2em; color: #d5ebe0">03</span>
+              <span style="font-family: 'Italiana', serif; font-size: clamp(28px, 3vw, 34px); line-height: 1.05; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5)">Less Talk</span>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="drop" style="margin: 0; transition-delay: 0.7s">
+          <div style="position: relative; overflow: hidden; transform: rotate(2deg); box-shadow: 0 18px 40px rgba(0,0,0,0.45)">
+            <img src="images/chudakad.jpg" alt="The band Chudakad" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.88) 100%); pointer-events: none"></div>
+            <figcaption style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.2em; color: #d5ebe0">04</span>
+              <span style="font-family: 'Italiana', serif; font-size: clamp(28px, 3vw, 34px); line-height: 1.05; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5)">Chudakad</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+      <div style="max-width: 720px; width: 100%; margin: 12px auto 0; box-sizing: border-box; border: 1px solid #245442; border-radius: 20px; background: #062b1f; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Song request</span>
+          <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.1; color: #f3efe6">What gets you on the dance floor?</h3>
+          <p style="margin: 0; color: #a9c4b7; font-size: 15px">Share a song and we'll consider it for our after-party playlist. We can't promise every request, but we'll do our best!</p>
+        </div>
+        <div data-if="songOpen" class="dc">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <label for="song" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Song title and artist</label>
+            <input id="song" type="text" placeholder="Song title and artist" style="flex: 1 1 260px; min-width: 0; min-height: 50px; border: 1px solid #245442; border-radius: 999px; padding: 0 20px; font-family: 'Spectral', serif; font-size: 17px; background: #0d3a2b; color: #f3efe6; box-sizing: border-box">
+            <button type="button" data-action="sendSong" style="min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; background: #d5ebe0; color: #062b1f; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Send request</button>
+          </div>
+        </div>
+        <div data-if="songSent" class="dc" hidden>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 18px; border-radius: 14px; background: #0d3a2b">
+            <span style="font-family: 'Ms Madi', cursive; font-size: 30px; line-height: 1; color: #d5ebe0">Noted, thank you!</span>
+            <button type="button" data-action="moreSong" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #a9c4b7; background: transparent; color: #f3efe6; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Request another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section id="dress" style="background: #fbf8f2; color: #15261f; padding: 96px 20px">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">04 · DRESS CODE</span>
+        <h2 data-rv="h3" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">What to wear</h2>
+        <p style="margin: 6px 0 0; max-width: 620px; color: #4b5a52">Kindly follow the palette for your group so we all look lovely together in the photos.</p>
+      </div>
+      <div data-rv="dress"  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; align-items: start">
+        <div style="border: 1px solid #e6dfd2; border-radius: 18px; padding: 26px; background: #ffffff; display: flex; flex-direction: column; gap: 22px">
+          <div style="display: flex; flex-direction: column; gap: 14px">
+            <div>
+              <div style="font-family: 'Ms Madi', cursive; font-size: 38px; line-height: 1; color: #6b0d12">Principal Sponsors &amp; Family</div>
+              <div style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #64726a">Ninongs, ninangs &amp; family</div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.10s; width: 48px; height: 48px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Deep Red</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.18s; width: 48px; height: 48px; border-radius: 50%; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Beige</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.26s; width: 48px; height: 48px; border-radius: 50%; background: #a58467; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Dark Beige</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.34s; width: 48px; height: 48px; border-radius: 50%; background: #111111; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Black</span></div>
+            </div>
+            <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px">
+              <li>Long gown for women, suit and tie for men</li>
+              <li>Lace or chiffon preferred for women</li>
+            </ul>
+          </div>
+          <div style="height: 1px; background: #efe8dc"></div>
+          <div style="display: flex; flex-direction: column; gap: 14px">
+            <div>
+              <div style="font-family: 'Ms Madi', cursive; font-size: 38px; line-height: 1; color: #0d3a2b">Guests</div>
+              <div style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #64726a">Everyone else we love</div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.42s; width: 48px; height: 48px; border-radius: 50%; background: #a58467; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Dark Beige</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.50s; width: 48px; height: 48px; border-radius: 50%; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Beige</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.58s; width: 48px; height: 48px; border-radius: 50%; background: #c4bab1; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Light Taupe</span></div>
+            </div>
+            <p style="margin: 0">Formal is preferred, semi-formal is welcome.</p>
+          </div>
+        </div>
+        <div style="border-radius: 18px; padding: 26px; background: #062b1f; color: #f3efe6; display: flex; flex-direction: column; gap: 14px">
+          <div>
+            <div style="font-family: 'Ms Madi', cursive; font-size: 38px; line-height: 1; color: #d5ebe0">The Entourage</div>
+            <div style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #a9c4b7">We've got you covered</div>
+          </div>
+          <p style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #d5ebe0; color: #062b1f; font-size: 15px; line-height: 1.5"><strong>No shopping needed.</strong> Rio &amp; Jay are providing the entourage's dresses and suits.</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Team Bride</span>
+              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Deep red</span></span>
+            </li>
+            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Team Groom</span>
+              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #111111; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Black, with a deep red tie</span></span>
+            </li>
+            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Flower Girls</span>
+              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Red or beige dress</span></span>
+            </li>
+            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Flower Boys</span>
+              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #111111; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #fbf8f2; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #a58467; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Black pants, white shirt, dark beige or deep red vest &amp; tie</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="border: 1px solid #e6dfd2; border-radius: 16px; background: #ffffff; padding: 6px 22px">
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid #efe8dc">
+          <span style="display: inline-flex; align-items: center; gap: 6px; min-width: 150px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #2e8a5c"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e8a5c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg> Wear formal</span>
+          <span style="color: #33443b; font-size: 16px">Gowns &amp; formal dresses · Suits &amp; ties · Dressy shoes that can handle grass</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid #efe8dc">
+          <span style="display: inline-flex; align-items: center; gap: 6px; min-width: 150px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #a3262d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a3262d" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg> Skip casual</span>
+          <span style="color: #33443b; font-size: 16px">Shorts &amp; t-shirts · Denim · Athletic wear · Slippers</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0">
+          <span style="display: inline-flex; align-items: center; gap: 6px; min-width: 150px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #a3262d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a3262d" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg> Skip colours</span>
+          <span style="color: #33443b; font-size: 16px">White, ivory &amp; cream · Bright red · Neon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTOURAGE -->
+  <section id="entourage" style="padding: 96px 20px">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">05 · THE ENTOURAGE</span>
+        <h2 data-rv="h4" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">Our people</h2>
+      </div>
+
+      <div data-rv="ent"  style="position: relative; max-width: 940px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; text-align: center">
+        <div class="aisle ln" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; margin-left: -0.5px; background: linear-gradient(180deg, rgba(213,235,224,0), #3c6455 6%, #3c6455 94%, rgba(213,235,224,0))"></div>
+
+        <div class="fade" style="transition-delay: 0.15s; position: relative; align-self: center; background: #062b1f; padding: 6px 22px; display: flex; flex-direction: column; gap: 2px">
+          <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Officiant</span>
+          <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 38px">Pastor Harlan Busto</span>
+        </div>
+
+        <div class="fade" style="transition-delay: 0.3s; position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 32px 120px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Groom's side</span>
+            <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 32px">Parents of the Groom</span>
+            <div style="font-size: 18px"><div>Reynaldo Dela Cruz</div><div>Merlita Dela Cruz</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Bride's side</span>
+            <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 32px">Parents of the Bride</span>
+            <div style="font-size: 18px"><div>Roy A. Gonzales</div><div>Marilou Legaspi</div></div>
+          </div>
+        </div>
+
+        <div class="fade" style="transition-delay: 0.45s; position: relative; display: flex; flex-direction: column; gap: 14px; align-items: center">
+          <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 34px; background: #062b1f; padding: 0 18px">Principal Sponsors</span>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 760px"><span style="padding: 10px 16px; border-radius: 8px; background: #fbf8f2; color: #15261f; font-size: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.25)">Mr. &amp; Mrs. Bem Pajarito</span><span style="padding: 10px 16px; border-radius: 8px; background: #fbf8f2; color: #15261f; font-size: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.25)">Mr. &amp; Mrs. Juan Paulo Pagaduan</span><span style="padding: 10px 16px; border-radius: 8px; background: #fbf8f2; color: #15261f; font-size: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.25)">Mr. &amp; Mrs. Roel Jacob</span><span style="padding: 10px 16px; border-radius: 8px; background: #fbf8f2; color: #15261f; font-size: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.25)">Mr. &amp; Mrs. Edwin Pestano</span><span style="padding: 10px 16px; border-radius: 8px; background: #fbf8f2; color: #15261f; font-size: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.25)">Ms. Carina David</span><span style="padding: 10px 16px; border-radius: 8px; background: #fbf8f2; color: #15261f; font-size: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.25)">Mr. Raymundo Timbol</span></div>
+        </div>
+
+        <div class="fade" style="transition-delay: 0.6s; position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 40px 120px; align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 16px; align-items: center">
+            <div style="display: flex; align-items: center; gap: 10px">
+              <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 40px">Team Groom</span>
+              <span style="display: inline-flex; gap: 4px"><span style="width: 14px; height: 14px; border-radius: 50%; background: #111111; box-shadow: 0 0 0 1.5px rgba(243,239,230,0.45)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #7a1016; box-shadow: 0 0 0 1.5px rgba(243,239,230,0.45)"></span></span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Best Man</span>
+              <div style="display: flex; flex-direction: column; gap: 2px; font-size: 18px"><div>Mark Renjo Dela Cruz</div></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Groomsmen</span>
+              <div style="display: flex; flex-direction: column; gap: 2px; font-size: 18px"><div>Arman Jerald Ardenaso</div><div>Jean Bagcal</div><div>Myung Kook Ko</div><div>Quin Kael Pajarito</div></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; align-items: center">
+            <div style="display: flex; align-items: center; gap: 10px">
+              <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 40px">Team Bride</span>
+              <span style="display: inline-flex; gap: 4px"><span style="width: 14px; height: 14px; border-radius: 50%; background: #7a1016; box-shadow: 0 0 0 1.5px rgba(243,239,230,0.45)"></span></span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Man of Honor</span>
+              <div style="display: flex; flex-direction: column; gap: 2px; font-size: 18px"><div>Ritz Kimwell Gonzales</div></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Bridesmaids &amp; Bridesmen</span>
+              <div style="display: flex; flex-direction: column; gap: 2px; font-size: 18px"><div>Jan Avi Pangilinan</div><div>Christine Joy Elizalde</div><div>Eugenie Mari Bautista</div><div>Mirachael Garcia</div><div>Jonathan Ong</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade" style="transition-delay: 0.75s; position: relative; align-self: center; background: #062b1f; padding: 8px 24px; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-family: 'Ms Madi', cursive; line-height: 1.05; color: #d5ebe0; font-size: 34px">Flower Girls &amp; Boys</span>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 18px; font-size: 18px"><span>Akeira Pagaduan</span><span>Iori Pagaduan</span><span>Kylo Pajarito</span><span>Juliet Jasmin Dela Cruz</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY YOU'RE HERE -->
+  <section style="background: #fbf8f2; color: #15261f; padding: 96px 20px">
+    <div style="max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 48px; align-items: center">
+      <div class="sway" style="background: #ffffff; padding: 12px 12px 48px; box-shadow: 0 16px 36px rgba(21,38,31,0.18); transform: rotate(-2deg); position: relative; max-width: 520px; justify-self: center; width: 100%; box-sizing: border-box">
+        <img src="images/memorial-hall.jpg" alt="Rio and Jay walking arm in arm at a memorial hall in Taipei" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; display: block">
+        <div style="position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-family: 'Ms Madi', cursive; font-size: 30px">our favorite people</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">06 · WHY YOU'RE HERE</span>
+        <p style="margin: 0; font-size: 20px; line-height: 1.65">Out of all the people we've met throughout our lives, we've chosen to celebrate this day with a small group of family and friends who have truly mattered to us. If you're receiving this invitation, it's because you've played a meaningful role in our story.</p>
+        <p style="margin: 0; font-size: 20px; line-height: 1.65">Whether you've known us from the beginning or became part of an important chapter along the way, we're grateful for your presence and honored to celebrate this milestone with you.</p>
+        <p style="margin: 0; font-family: 'Italiana', serif; font-size: 34px; line-height: 1.15; color: #0d3a2b">Thank you for being one of our favorite people.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section id="notes" style="padding: 96px 20px">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">07 · NOTES FROM THE COUPLE</span>
+        <h2 data-rv="h5" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">Good to know</h2>
+      </div>
+      <div data-rv="notes"  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 20px">
+        <div class="fade" style="transition-delay: 0.10s; background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #d5ebe0; color: #062b1f; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></div>
+          <h3 style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase">By invitation only</h3>
+          <p style="margin: 0; color: #d9e3dd">We prefer meaningful connections over large crowds, so we're keeping our wedding intimate. <strong style="color: #ffd2cc">No plus ones, please.</strong> If you're receiving this, thank you for being one of those people.</p>
+        </div>
+        <div class="fade" style="transition-delay: 0.25s; background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #d5ebe0; color: #062b1f; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M3 3l18 18"></path></svg></div>
+          <h3 style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase">Unplugged ceremony</h3>
+          <p style="margin: 0; color: #d9e3dd">Please keep <strong style="color: #ffd2cc">phones, cameras and devices away during the ceremony</strong>. Our photographers and videographers will capture every moment. Snap away at the reception and after party!</p>
+        </div>
+        <div class="fade" style="transition-delay: 0.40s; background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #d5ebe0; color: #062b1f; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"></rect><path d="M3 13h18"></path><path d="M12 9v12"></path><path d="M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6-1 6-1.5S14 5 12 9z"></path></svg></div>
+          <h3 style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase">On gifts</h3>
+          <p style="margin: 0; color: #d9e3dd">Your love and presence are truly all we ask for. Should you wish to bless us, a monetary contribution toward our future would be sincerely appreciated. We'll hold a <strong style="color: #ffffff">Prosperity Activity</strong> during the reception where gifts may be given.</p>
+        </div>
+        <div class="fade" style="transition-delay: 0.55s; background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #d5ebe0; color: #062b1f; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h6l-1 7a3 3 0 0 1-4 0z"></path><path d="M10 12v8"></path><path d="M7 21h6"></path><path d="M14 4h5l-1 6a3 3 0 0 1-3.5 0"></path><path d="M16.5 12v8"></path><path d="M14.5 21h4"></path></svg></div>
+          <h3 style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase">Adults-only celebration</h3>
+          <p style="margin: 0; color: #d9e3dd">While we adore your little ones, our wedding is <strong style="color: #ffd2cc">adults only</strong>. The only children attending will be those in the entourage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" style="background: #fbf8f2; color: #15261f; padding: 96px 20px">
+    <div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">08 · RSVP</span>
+        <h2 data-rv="h6" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(48px, 7vw, 80px); line-height: 1; letter-spacing: 0.04em">Will you join us?</h2>
+        <p style="margin: 6px 0 0; color: #4b5a52; max-width: 560px">Please reply on or before <strong style="color: #6b0d12">November 1, 2026</strong> to help us finalize the guest list, seating and preparations.</p>
+      </div>
+
+      <div data-if="sent" class="dc" hidden>
+        <div style="background: #062b1f; color: #f3efe6; border-radius: 22px; padding: 48px 32px; text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
+          <div style="font-family: 'Ms Madi', cursive; font-size: 56px; line-height: 1; color: #d5ebe0">Thank you!</div>
+          <p style="margin: 0; max-width: 460px; font-size: 18px"><span data-t="thanksLine"></span></p>
+          <button type="button" data-action="reset" style="margin-top: 10px; min-height: 44px; padding: 0 22px; border-radius: 999px; border: 1px solid #a9c4b7; background: transparent; color: #f3efe6; font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Edit my reply</button>
+        </div>
+      </div>
+
+      <div data-if="notSent" class="dc">
+        <form data-rv="rsvpf" class="rv-up" style="background: #ffffff; border: 1px solid #e6dfd2; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 20px 50px rgba(21,38,31,0.08)">
+          <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+            <legend style="padding: 0; margin-bottom: 10px; font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #4b5a52">Your answer *</legend>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+              <div data-if="yesOn" class="dc" hidden>
+                <button type="button" data-action="pickYes" style="min-height: 64px; border-radius: 16px; border: 2px solid #062b1f; background: #062b1f; color: #f3efe6; font-family: 'Spectral', serif; font-size: 18px; cursor: pointer">✓ Joyfully accepts</button>
+              </div>
+              <div data-if="yesOff" class="dc">
+                <button type="button" data-action="pickYes" style="min-height: 64px; border-radius: 16px; border: 2px solid #d8cfbf; background: #fbf8f2; color: #15261f; font-family: 'Spectral', serif; font-size: 18px; cursor: pointer">Joyfully accepts</button>
+              </div>
+              <div data-if="noOn" class="dc" hidden>
+                <button type="button" data-action="pickNo" style="min-height: 64px; border-radius: 16px; border: 2px solid #6b0d12; background: #6b0d12; color: #f3efe6; font-family: 'Spectral', serif; font-size: 18px; cursor: pointer">✓ Regretfully declines</button>
+              </div>
+              <div data-if="noOff" class="dc">
+                <button type="button" data-action="pickNo" style="min-height: 64px; border-radius: 16px; border: 2px solid #d8cfbf; background: #fbf8f2; color: #15261f; font-family: 'Spectral', serif; font-size: 18px; cursor: pointer">Regretfully declines</button>
+              </div>
+            </div>
+            <div data-if="noOn" class="dc" hidden>
+              <p style="margin: 6px 0 0; font-style: italic; color: #6b0d12">We'll miss you, truly. You can still leave us a little message below.</p>
+            </div>
+          </fieldset>
+
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="names" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #4b5a52">Full name of each invited guest *</label>
+            <textarea id="names" rows="3" placeholder="One name per line" style="border: 1px solid #d8cfbf; border-radius: 12px; padding: 12px 14px; font-family: 'Spectral', serif; font-size: 17px; background: #fbf8f2; color: #15261f; resize: vertical"></textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <label for="count" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #4b5a52">Number attending *</label>
+              <input id="count" type="number" min="0" max="10" placeholder="e.g. 2" style="min-height: 48px; border: 1px solid #d8cfbf; border-radius: 12px; padding: 0 14px; font-family: 'Spectral', serif; font-size: 17px; background: #fbf8f2; color: #15261f; box-sizing: border-box">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <label for="phone" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #4b5a52">Contact number *</label>
+              <input id="phone" type="tel" placeholder="09XX XXX XXXX" style="min-height: 48px; border: 1px solid #d8cfbf; border-radius: 12px; padding: 0 14px; font-family: 'Spectral', serif; font-size: 17px; background: #fbf8f2; color: #15261f; box-sizing: border-box">
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="msg" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #4b5a52">A message for Rio &amp; Jay (optional)</label>
+            <textarea id="msg" rows="4" placeholder="Wishes, advice, a favorite memory…" style="border: 1px solid #d8cfbf; border-radius: 12px; padding: 12px 14px; font-family: 'Spectral', serif; font-size: 17px; background: #fbf8f2; color: #15261f; resize: vertical"></textarea>
+          </div>
+
+          <p style="margin: 0; font-size: 14px; color: #64726a">Reminder: this invitation is for the names on it only. No plus ones, and adults only.</p>
+
+          <div data-if="hasErr" class="dc" hidden>
+            <p role="alert" style="margin: 0; padding: 12px 16px; border-radius: 12px; background: #f6e3e1; color: #6b0d12; font-size: 15px"><span data-t="errMsg"></span></p>
+          </div>
+          <button type="button" data-action="send" style="min-height: 56px; border-radius: 999px; border: 0; background: #062b1f; color: #f3efe6; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer"><span data-t="sendLabel"></span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding: 96px 20px">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">09 · CONTACT</span>
+        <h2 data-rv="h7" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">Questions? Join your group.</h2>
+        <p style="margin: 6px 0 0; color: #a9c4b7; max-width: 620px">Scan the QR code or tap to join the group chat for your role. Updates and reminders will be posted there.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px">
+        <div class="lift" style="border: 1px solid #245442; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+          <a href="https://m.me/j/AbatgtRZdGt_5O7g/" target="_blank" rel="noopener" aria-label="Join the Team Bride group chat on Messenger" style="display: block; border-radius: 10px"><img src="images/qr-team-bride.png" alt="QR code to join the Team Bride group chat" width="132" height="132" style="width: 132px; height: 132px; border-radius: 10px; background: #ffffff; display: block"></a>
+          <div style="font-family: 'Ms Madi', cursive; font-size: 34px; line-height: 1; color: #d5ebe0">Team Bride</div>
+          <div style="font-size: 15px; color: #a9c4b7">Bridesmaids &amp; Bridesmen</div>
+          <a href="https://m.me/j/AbatgtRZdGt_5O7g/" target="_blank" rel="noopener" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase">Join chat →</a>
+        </div>
+        <div class="lift" style="border: 1px solid #245442; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+          <a href="https://m.me/j/Abb5jDSXkGP5V8H7/" target="_blank" rel="noopener" aria-label="Join the Team Groom group chat on Messenger" style="display: block; border-radius: 10px"><img src="images/qr-team-groom.png" alt="QR code to join the Team Groom group chat" width="132" height="132" style="width: 132px; height: 132px; border-radius: 10px; background: #ffffff; display: block"></a>
+          <div style="font-family: 'Ms Madi', cursive; font-size: 34px; line-height: 1; color: #d5ebe0">Team Groom</div>
+          <div style="font-size: 15px; color: #a9c4b7">Groomsmen</div>
+          <a href="https://m.me/j/Abb5jDSXkGP5V8H7/" target="_blank" rel="noopener" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase">Join chat →</a>
+        </div>
+        <div class="lift" style="border: 1px solid #245442; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+          <a href="https://m.me/j/AbYLGyjbOVCNTvv2/" target="_blank" rel="noopener" aria-label="Join the Principal Sponsors group chat on Messenger" style="display: block; border-radius: 10px"><img src="images/qr-sponsors.png" alt="QR code to join the Principal Sponsors group chat" width="132" height="132" style="width: 132px; height: 132px; border-radius: 10px; background: #ffffff; display: block"></a>
+          <div style="font-family: 'Ms Madi', cursive; font-size: 34px; line-height: 1; color: #d5ebe0">Principal Sponsors</div>
+          <div style="font-size: 15px; color: #a9c4b7">Ninongs &amp; Ninangs</div>
+          <a href="https://m.me/j/AbYLGyjbOVCNTvv2/" target="_blank" rel="noopener" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase">Join chat →</a>
+        </div>
+        <div class="lift" style="border: 1px solid #245442; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+          <a href="https://m.me/j/Abb7LAWmgFLeUeTg/" target="_blank" rel="noopener" aria-label="Join the General Group group chat on Messenger" style="display: block; border-radius: 10px"><img src="images/qr-general.png" alt="QR code to join the General Group group chat" width="132" height="132" style="width: 132px; height: 132px; border-radius: 10px; background: #ffffff; display: block"></a>
+          <div style="font-family: 'Ms Madi', cursive; font-size: 34px; line-height: 1; color: #d5ebe0">General Group</div>
+          <div style="font-size: 15px; color: #a9c4b7">Invited guests &amp; family</div>
+          <a href="https://m.me/j/Abb7LAWmgFLeUeTg/" target="_blank" rel="noopener" style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase">Join chat →</a>
+        </div>
+      </div>
+      <div style="background: #0d3a2b; border-radius: 18px; padding: 22px 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 40px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d5ebe0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #a9c4b7">Lost on the way? Call</span>
+        </div>
+        <div><span style="color: #a9c4b7">Roy Gonzales</span> · <a href="tel:+639285018909" style="font-weight: 600">0928 501 8909</a></div>
+        <div><span style="color: #a9c4b7">Jay Dela Cruz</span> · <a href="tel:+639202704853" style="font-weight: 600">0920 270 4853</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid #245442; padding: 64px 20px 72px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
+    <div style="font-family: 'Italiana', serif; font-size: 44px; letter-spacing: 0.06em">Rio <span style="font-family: 'Ms Madi', cursive; color: #d5ebe0">&amp;</span> Jay</div>
+    <div style="font-family: 'Courier Prime', monospace; font-size: 14px; letter-spacing: 0.3em; color: #a9c4b7">12.20.26 · THE VFARM BAMBAN</div>
+    <a href="#rsvp" style="margin-top: 14px; font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">Haven't replied yet? RSVP ↑</a>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
