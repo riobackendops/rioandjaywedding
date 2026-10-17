@@ -1,0 +1,791 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"></head><body><title>Rio & Jay Supplier Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Ms+Madi&family=Spectral:ital,wght@0,400;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Layout: one view at a time. Sticky bar = names + countdown + tabs (Overview, Timeline, Plan, Suppliers) + a Team page picker. Each view is a single ivory sheet with hairline dividers; status is a dot, not a badge. Single deliberate look. */
+:root{
+  color-scheme: light;
+  --ground:#062b1f; --ground-2:#0d3a2b; --ground-line:#245442;
+  --on-ground:#f3efe6; --on-ground-dim:#a9c4b7;
+  --paper:#fbf8f2; --paper-2:#f2ece1; --ink:#15261f; --ink-dim:#64726a; --line:#e6dfd2;
+  --mint:#d5ebe0; --beige:#a58467; --red:#6b0d12;
+  --ok:#2e8a5c; --warn:#c08a2e; --bad:#a3262d;
+  --f-display:"Italiana","Didot","Bodoni 72",Georgia,serif;
+  --f-script:"Ms Madi","Snell Roundhand","Brush Script MT",cursive;
+  --f-body:"Spectral",Georgia,"Times New Roman",serif;
+  --f-mono:"Courier Prime","Courier New",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--on-ground);font-family:var(--f-body);font-size:15px;line-height:1.5;margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.sheet :focus-visible,.modal :focus-visible{outline-color:var(--red)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ground);border-bottom:1px solid var(--ground-line)}
+.bar-in{max-width:980px;margin:0 auto;padding:10px 16px 0}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:var(--f-display);font-size:22px;text-decoration:none;white-space:nowrap}
+.brand i{font-family:var(--f-script);font-style:normal;color:var(--mint);font-size:22px;margin:0 3px}
+.when{font-family:var(--f-mono);font-size:12px;color:var(--on-ground-dim);display:flex;gap:10px;align-items:center;white-space:nowrap}
+.when b{color:var(--mint);font-weight:400}
+.tabs{display:flex;align-items:flex-end;gap:2px;overflow-x:auto;scrollbar-width:none;margin-top:6px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:var(--f-mono);font-size:13px;text-decoration:none;color:var(--on-ground-dim);padding:8px 10px 9px;border-bottom:2px solid transparent;white-space:nowrap}
+.tabs a:hover{color:var(--on-ground)}
+.tabs a.on{color:var(--on-ground);border-bottom-color:var(--mint)}
+.tabs .sep{flex:1 1 auto}
+.when select{background:transparent;border:1px solid var(--ground-line);color:var(--on-ground);border-radius:999px;padding:3px 10px;font-family:var(--f-mono);font-size:12px;max-width:170px}
+.when select.on{background:var(--mint);color:var(--ground);border-color:var(--mint)}
+.btn{border:1px solid var(--ground-line);background:transparent;color:var(--on-ground);border-radius:999px;padding:3px 12px;cursor:pointer;font-family:var(--f-mono);font-size:12px}
+.btn.on{background:var(--mint);color:var(--ground);border-color:var(--mint)}
+
+/* page */
+main{max-width:980px;margin:0 auto;padding:20px 16px 110px}
+.sheet{background:var(--paper);color:var(--ink);border-radius:12px;padding:6px 22px 18px;min-width:0}
+.sheet+.sheet{margin-top:14px}
+h2{font-family:var(--f-display);font-weight:400;font-size:21px;letter-spacing:.06em;text-transform:uppercase;margin:16px 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 small,.meta{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:none;color:var(--ink-dim)}
+h3{font-family:var(--f-mono);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin:14px 0 4px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:0 28px}
+.dim{color:var(--ink-dim)}
+.small{font-size:13.5px}
+p{margin:0}
+
+/* lists */
+.list{list-style:none;margin:0;padding:0}
+.list>li{padding:8px 0;border-top:1px solid var(--line);min-width:0}
+.list>li:first-child{border-top:0}
+.row{display:flex;gap:10px;align-items:baseline;justify-content:space-between}
+.row>span:first-child{min-width:0}
+.t{font-family:var(--f-mono);font-weight:700;font-size:13px;color:var(--red);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tl>li{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:10px;align-items:baseline}
+.tl .who{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-dim)}
+.tl .who b{color:var(--red);font-weight:700}
+.list>li.phase{display:flex!important;align-items:baseline;gap:10px;background:var(--ground);color:var(--on-ground);border-radius:10px;padding:10px 14px;margin:18px 0 4px;border-top:0}
+.list>li.phase:first-child{margin-top:4px}
+.list>li.phase+li{border-top:0}
+.phn{font-family:var(--f-mono);font-size:12px;color:var(--mint)}
+.pht{font-family:var(--f-display);font-size:21px;letter-spacing:.06em;text-transform:uppercase;flex:1}
+.phr{font-family:var(--f-mono);font-size:11.5px;color:var(--on-ground-dim)}
+.kv>li{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:10px;align-items:baseline}
+.k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* status dots */
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0;vertical-align:middle}
+.dot.ok{background:var(--ok)}
+.dot.tbc{background:var(--warn)}
+.dot.bad{background:var(--bad)}
+.dot.prop{border:1.5px solid var(--beige);background:transparent}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11.5px;letter-spacing:0;text-transform:none;color:var(--ink-dim);align-items:center}
+.legend span{display:inline-flex;gap:5px;align-items:center}
+
+/* hero (overview only) */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:6px 0 18px}
+.date{display:flex;align-items:center;gap:16px}
+.date .d{font-family:var(--f-display);font-size:84px;line-height:.85}
+.date .s{font-family:var(--f-display);font-size:24px;line-height:1.1;text-transform:uppercase;letter-spacing:.06em}
+.date .s span{display:block;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;color:var(--on-ground-dim)}
+.count{background:var(--mint);color:var(--ground);border-radius:12px;padding:10px 18px;text-align:right}
+.count b{font-family:var(--f-display);font-weight:400;font-size:52px;line-height:1;display:block;font-variant-numeric:tabular-nums}
+.count span{font-family:var(--f-mono);font-size:11.5px}
+
+.num{font-family:var(--f-mono);font-size:12px;color:var(--beige);margin-right:10px;letter-spacing:0}
+.tlc>li{grid-template-columns:76px minmax(0,1fr) auto;padding:6px 0}
+@media (max-width:640px){.tlc>li{grid-template-columns:64px minmax(0,1fr)}.tlc>li>span:last-child{grid-column:2;text-align:left!important}}
+.thumbs{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;max-width:110px;justify-content:flex-end}
+.thumb{width:52px;aspect-ratio:4/5;object-fit:cover;border-radius:6px;cursor:zoom-in;display:block;max-width:100%}
+.list>li.mo{display:flex;gap:12px;justify-content:space-between;align-items:flex-start}
+.list>li.mo>div{min-width:0;flex:1}
+.vbox{display:flex;gap:14px;align-items:flex-start}
+.vgrid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:start;margin-top:4px}
+.vimg{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;cursor:zoom-in;flex-shrink:0;max-width:100%}
+.strip{display:flex;gap:8px;overflow-x:auto;margin-top:12px;padding-bottom:4px}
+.sthumb{height:150px;aspect-ratio:4/5;object-fit:cover;border-radius:8px;cursor:zoom-in;flex-shrink:0}
+.list>li.mem{display:flex;gap:12px;align-items:flex-start}
+.avatar{width:56px;aspect-ratio:4/5;object-fit:cover;border-radius:6px;cursor:zoom-in;flex-shrink:0}
+.lb{flex-direction:column;align-items:center;justify-content:center;cursor:zoom-out}
+.lb img{max-width:min(92vw,560px);max-height:80vh;border-radius:10px;pointer-events:none}
+.lb p{color:var(--on-ground);font-family:var(--f-mono);font-size:12px;text-transform:capitalize;margin-top:8px;pointer-events:none}
+@media (max-width:640px){.thumb{width:44px}.vgrid{grid-template-columns:1fr}.sthumb{height:120px}}
+.inspo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:16px}
+.inspo figure{margin:0}
+.iimg{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;cursor:zoom-in;display:block}
+.inspo figcaption{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+.tximg{width:160px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;cursor:zoom-in;margin-top:10px;display:block}
+details.tgrp{border:1px solid var(--line);border-radius:10px;background:var(--paper-2);margin-top:8px;transition:background .15s}
+details.tgrp summary{font-size:17px;align-items:center;gap:12px;padding:12px 14px;border-radius:10px}
+details.tgrp summary:hover{background:color-mix(in srgb,var(--mint) 55%,var(--paper-2))}
+details.tgrp summary>span:first-child{flex:1}
+details.tgrp summary .meta{letter-spacing:0}
+details.tgrp summary::after{content:"";width:26px;height:26px;flex-shrink:0;border-radius:50%;background:var(--ground) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f3efe6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s}
+details.tgrp[open] summary::after{content:"";transform:rotate(180deg)}
+details.tgrp[open]{background:var(--paper);border-color:var(--beige)}
+details.tgrp[open] summary{border-bottom:1px solid var(--line);border-radius:10px 10px 0 0}
+details.tgrp>div{padding:2px 14px 8px}
+.tap{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-dim);margin:2px 0 0}
+.list>li.cp{align-items:center}
+.cpn{display:flex;gap:12px;align-items:center}
+.cimg{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 18%;cursor:zoom-in;flex-shrink:0;border:2px solid var(--paper-2)}
+.dcfig{margin:6px 0 4px;background:#fff;border-radius:10px;padding:10px}
+.dcrow{display:flex;gap:16px;align-items:flex-start}
+.dcimg{width:120px;flex-shrink:0;display:block;cursor:zoom-in;border-radius:8px}
+@media (max-width:640px){.dcimg{width:96px}}
+.dcwrap{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:center;margin-top:6px}
+.dcbig{width:100%;display:block;border-radius:10px;cursor:zoom-in}
+@media (max-width:640px){.dcwrap{grid-template-columns:1fr;gap:14px}.dcbig{max-width:240px;margin:0 auto}}
+.dccards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin-top:12px}
+.dccard{border-radius:10px;padding:12px 14px;border:1px solid var(--line)}
+.dccard.cam{background:#f6ebe3;border-color:#e6cdbb}
+.dccard.bts{background:#ecebe8;border-color:#d6d3cc}
+.dch{display:flex;flex-direction:column;gap:1px;margin-bottom:4px}
+.dch b{font-family:var(--f-display);font-weight:400;font-size:20px;letter-spacing:.05em;text-transform:uppercase}
+.dccard.cam .dch b{color:var(--red)}
+.dcl{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-top:8px}
+.dcavoid{margin-top:10px}
+.dcwho{display:block;font-size:13px;color:var(--ink-dim);font-style:italic;margin-bottom:2px}
+.segs{display:grid;grid-template-columns:1fr;gap:16px;margin-top:10px}
+.seg{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.seghd{display:flex;align-items:baseline;gap:10px;background:var(--ground);color:var(--on-ground);padding:10px 16px}
+.segn{font-family:var(--f-mono);font-size:12px;color:var(--mint)}
+.segt{font-family:var(--f-display);font-size:21px;letter-spacing:.06em;text-transform:uppercase;flex:1}
+.segr{font-family:var(--f-mono);font-size:11.5px;color:var(--on-ground-dim)}
+.segbd{padding:4px 16px 12px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px;margin-top:10px;align-items:start}
+.list>li.srow{display:flex;gap:12px;align-items:center}
+.sav{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:50% 25%;flex-shrink:0;cursor:zoom-in;border:2px solid var(--paper-2)}
+.sav.mono{display:inline-flex;align-items:center;justify-content:center;background:var(--mint);color:var(--ground);font-family:var(--f-display);font-size:17px;letter-spacing:.04em;cursor:default}
+.seg .catlink{display:inline-block;margin-top:8px}
+.cats .segt{font-size:17px;line-height:1.2}
+.cats .seghd{align-items:center}
+.tdr{display:flex;align-items:center;gap:10px}
+.xbtn{border:1px solid var(--line);background:none;border-radius:999px;min-width:26px;height:26px;padding:0 8px;cursor:pointer;color:var(--ink-dim);font-size:12px;font-family:var(--f-mono)}
+.xbtn:hover{border-color:var(--bad);color:var(--bad)}
+.xbtn.armed{background:var(--bad);border-color:var(--bad);color:#fff}
+.tstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:6px 0 10px}
+.tstats div{background:var(--paper-2);border-radius:10px;padding:10px 12px}
+.tstats b{display:block;font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1}
+.tstats span{font-family:var(--f-mono);font-size:11px;color:var(--ink-dim)}
+.list>li.trow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px;align-items:start}
+.tname{display:flex;gap:12px;align-items:flex-start}
+.tks{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.tk{font-family:var(--f-mono);font-size:11px;border-radius:999px;padding:2px 8px;display:inline-flex;align-items:center;gap:4px}
+.tk.y{background:var(--ok-soft,#dcefe4);color:var(--ok)}
+.tk.n{background:#f6ead2;color:#8a5a12}
+.tk input{margin:0;width:12px;height:12px;accent-color:var(--ok)}
+label.tk{cursor:pointer}
+.pl{list-style:none;margin:0;padding:0}
+.pl li{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:14px;padding:3px 0}
+.padd{display:flex;gap:6px;margin-top:6px}
+.padd input{flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-size:13.5px;background:#fff}
+.padd .addbtn{margin-top:0;display:inline-flex!important}
+@media (max-width:640px){.list>li.trow{grid-template-columns:1fr}}
+.prole{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-left:4px}
+.cw{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:5px}
+.cw .k{margin-right:2px}
+.cwc{font-family:var(--f-mono);font-size:11.5px;text-decoration:none;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--ink)}
+.cwc:hover{border-color:var(--beige)}
+.cwc.me{background:var(--red);border-color:var(--red);color:#fff}
+.list>li.pty{align-items:flex-start}
+.meals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin-top:6px;max-width:380px}
+.meal{display:flex;flex-direction:column;gap:0;border-radius:8px;padding:3px 6px;font-family:var(--f-mono);font-size:11px;border:1px solid var(--line)}
+.meal span{color:var(--ink-dim)}
+.meal select{border:0;background:transparent;font-family:var(--f-mono);font-size:11px;padding:0;cursor:pointer;color:var(--ink);width:100%}
+.meal.provided{background:#dcefe4;border-color:#bfe0cc}
+.meal.paid{background:#efe7f6;border-color:#dccdea}
+.mealsum{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;background:var(--paper-2);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:14px}
+.mealsum b{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;width:100%}
+.mealsum i{font-style:normal;font-weight:600}
+.tdcat{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:22px;padding-bottom:6px;border-bottom:2px solid var(--red)}
+.tdcat h3{margin:0;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.tdcn{font-family:var(--f-mono);font-size:11px;color:var(--ink-dim)}
+.list.qa li{display:grid;grid-template-columns:150px 1fr auto;gap:4px 14px;align-items:start}
+.list.qa .qq{display:block}
+.list.qa .qa-a{display:block;margin-top:3px;padding-left:10px;border-left:2px solid var(--ok);font-size:14px}
+.list.qa .qa-w{display:block;margin-top:3px;font-family:var(--f-mono);font-size:11.5px;color:#8a5a12}
+@media(max-width:600px){.list.qa li{grid-template-columns:1fr auto}.list.qa li>.k{grid-column:1/-1}}
+.tscroll{overflow-x:auto;margin-top:8px}
+.ttimes{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.ttimes th,.ttimes td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line,rgba(0,0,0,.12));vertical-align:middle}
+.ttimes thead th{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);font-weight:700}
+.ttimes tbody th{font-weight:600}
+.ttimes td{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap;width:15%}
+.ttimes tr.tgrp th{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);padding-top:16px;font-weight:400}
+.ttimes.tcontact td{width:auto}.ttimes.tcontact td.c-crew{width:90px}.ttimes.tcontact td.c-poc{font-family:var(--f-body,inherit);font-size:14px}
+.tin{width:100%;min-width:80px;font:inherit;padding:4px 6px;border:1px solid var(--line,rgba(0,0,0,.2));border-radius:6px;background:#fff;color:var(--ink)}
+.teambtn{display:flex;justify-content:space-between;align-items:center;margin-top:12px;background:var(--ground);color:var(--on-ground);text-decoration:none;border-radius:999px;padding:9px 16px;font-family:var(--f-mono);font-size:12.5px;transition:background .15s}
+.teambtn:hover{background:var(--red)}
+.teambtn span{font-size:15px}
+.seglink{color:inherit;text-decoration:none}
+.seglink:hover{text-decoration:underline;text-underline-offset:4px}
+.seglink span{font-size:.75em;color:var(--mint)}
+.resp{margin:4px 0 0;padding-left:20px;font-size:15px;list-style:disc}
+.rsub{list-style:circle;padding-left:18px;margin:2px 0 0;color:var(--ink-dim);font-size:13.5px;line-height:1.45}
+.rsub li{margin:0}
+.resp li{margin:6px 0}
+.rdet{display:block;color:var(--ink-dim);font-size:13.5px;line-height:1.45;margin-top:1px}
+.tbcb{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:#f6ead2;color:#8a5a12;border-radius:999px;padding:3px 10px}
+.lookgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:8px 28px;margin-top:6px}
+.fphotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.fphotos figure{margin:0}
+.fimg{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;cursor:zoom-in;display:block}
+.fphotos figcaption{font-family:var(--f-mono);font-size:11px;color:var(--ink-dim);text-transform:capitalize;margin-top:4px}
+.tcat{display:flex;align-items:center;gap:10px;background:var(--ground);color:var(--on-ground);border-radius:10px;padding:10px 14px;margin:18px 0 4px;flex-wrap:wrap}
+.tcat .pht{font-size:19px}
+.tcatbtn{font-family:var(--f-mono);font-size:12px;color:var(--ground);background:var(--mint);text-decoration:none;border-radius:999px;padding:5px 12px;white-space:nowrap}
+.tcatbtn:hover{background:#fff}
+.list>li.trow.pub{grid-template-columns:1fr}
+.prgrid{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:start}
+.prgrid .tximg{margin-top:0}
+@media (max-width:640px){.prgrid{grid-template-columns:1fr}}
+.txrow{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px;align-items:start;margin-top:6px}
+.txrow .tximg{margin-top:0;width:100%}
+.txn{margin-top:0}
+.poc{font-size:14px;margin-top:4px}
+.poc .k{margin-right:4px}
+.briefbtn{font-family:var(--f-mono);font-size:11px;background:var(--ground);color:var(--on-ground);text-decoration:none;border-radius:999px;padding:2px 10px;display:inline-flex;align-items:center}
+.briefbtn:hover{background:var(--red)}
+.tphase{margin-top:22px}
+.tphase:first-of-type{margin-top:10px}
+.phasebar{display:flex;align-items:baseline;gap:10px;background:var(--ground);color:var(--on-ground);border-radius:10px;padding:10px 14px}
+.tphase>h3{margin-top:14px}
+.sah{border-top:1px dashed var(--line);padding-top:12px}
+.mgrid .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));column-gap:28px}
+.mgrid .list>li:nth-child(2){border-top:0}
+@media (max-width:860px){.mgrid .list>li:nth-child(2){border-top:1px solid var(--line)}}
+.blk{border-radius:10px;padding:10px 14px 12px;margin-top:10px}
+.blk.sched{border:1px solid var(--line);background:var(--paper)}
+.blk.stns{background:#eef5f0;border:1px solid #d3e6da}
+.blkh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.blk.stns .blkh{border-bottom-color:#d3e6da}
+.blkt{font-family:var(--f-mono);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:2px 9px;border-radius:999px}
+.sched .blkt{background:var(--red);color:#fff}
+.stns .blkt{background:var(--ground);color:var(--on-ground)}
+.blks{font-family:var(--f-mono);font-size:11px;color:var(--ink-dim)}
+.blk.stns .list>li{border-top-color:#d3e6da}
+.tl .st{display:flex;gap:8px;align-items:flex-start}
+.tl>li{align-items:start!important}
+.tl .t{padding-top:3px}
+.tl .owner{font-family:var(--f-mono);font-size:12px;color:var(--ink);margin-top:3px}
+.tl .st .dot{margin-top:6px}
+.tl .st .thumbs{max-width:110px}
+.bigbtn{margin-top:14px;padding:12px 18px;font-size:13px}
+.prlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:0 28px;margin-top:8px}
+.pritem{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.prthumb{width:56px;aspect-ratio:4/5;object-fit:cover;border-radius:6px;flex-shrink:0;cursor:zoom-in}
+.prthumb.ph{display:inline-flex;align-items:center;justify-content:center;background:var(--paper-2);border:1px dashed var(--beige);color:var(--ink-dim);font-family:var(--f-display);font-size:16px;cursor:default}
+.gxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,205px),1fr));gap:14px;margin-top:10px}
+.gx{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.gxph{display:grid;grid-template-rows:100%;aspect-ratio:4/3;overflow:hidden;background:var(--paper-2)}
+.gxph.two{grid-template-columns:1fr 1fr;gap:2px}
+.gximg{width:100%;height:100%;min-height:0;object-fit:cover;object-position:50% 30%;cursor:zoom-in;display:block}
+.gxph.none{place-items:center;font-family:var(--f-display);font-size:34px;color:var(--beige);background:repeating-linear-gradient(135deg,var(--paper-2) 0 10px,var(--paper) 10px 20px)}
+.gxb{padding:10px 14px 14px}
+.gxt{font-family:var(--f-display);font-weight:400;font-size:18px;letter-spacing:.03em;text-transform:uppercase;line-height:1.15}
+.gxw{font-family:var(--f-mono);font-size:11.5px;color:var(--red);margin-top:4px}
+.gxsongs{margin-top:10px;display:grid;gap:6px}
+.gxinspo{margin-top:10px}
+.pglist{list-style:disc;margin:6px 0 4px;padding-left:20px;font-size:14.5px}
+.pglist li{padding:3px 0}
+.pglist li::marker{color:var(--red)}
+.pgtools{display:none;gap:4px;align-items:center;margin-left:6px;vertical-align:middle}
+body.editing .pgtools{display:inline-flex}
+.pgmv{width:24px;height:24px;border:1px solid var(--line,rgba(0,0,0,.2));border-radius:6px;background:#fff;cursor:pointer;font-size:13px;line-height:1;padding:0}
+.pgmv:disabled{opacity:.3;cursor:default}
+.gxgrid.rows{grid-template-columns:1fr;gap:10px}
+.gx.gxr{display:grid;grid-template-columns:200px 1fr;align-items:start}
+.gx.gxr .gxph{aspect-ratio:3/2;height:auto;margin:0;width:100%}
+.gx.gxr .gxb{padding:12px 16px 14px}
+.gx.gxr .gxinspo{max-width:560px}
+.gx.gxr .gxiph{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
+@media(max-width:600px){.gx.gxr{grid-template-columns:110px 1fr}.gx.gxr .gxb{padding:10px 12px}}
+.gxib{padding:2px 12px 12px}
+.gxil{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-top:8px}
+.gxex{margin:4px 0 0;padding-left:18px;font-size:13.5px;line-height:1.45}
+.gxiph{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px}
+.gxithumb{width:100%;aspect-ratio:1;object-fit:cover;cursor:zoom-in;display:block}
+.gxlk{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.gxlk a{font-family:var(--f-mono);font-size:11.5px;padding:3px 8px;border:1px solid var(--line,rgba(0,0,0,.2));border-radius:999px;text-decoration:none;color:var(--ink)}
+.gxadd{margin-top:10px;display:block}
+.list li.cuehd{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);padding-top:12px;border-bottom:0}
+.gxsong{border:1px solid var(--line,rgba(0,0,0,.15));background:var(--paper-2)}
+.gxsong>summary{cursor:pointer;padding:7px 10px;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.gxsong>summary::-webkit-details-marker{display:none}
+.gxsong>summary::after{content:"+";font-family:var(--f-mono);color:var(--red)}
+.gxsong[open]>summary::after{content:"–"}
+.gxsong>summary{text-transform:none;letter-spacing:0;font-family:var(--f-body,inherit)}
+.gxsong .meta{margin-left:auto;font-weight:400;font-size:11px;white-space:nowrap}
+.gxgrid .gx{align-self:start}
+.gxsong .songs{margin:0;padding:2px 12px 10px 30px;font-size:13px;line-height:1.5}
+/* misc */
+.swatches{display:inline-flex;gap:6px;flex-wrap:wrap;align-items:center}
+.sw{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.phone{font-family:var(--f-mono);font-size:13px;user-select:all;white-space:nowrap}
+details{border-top:1px solid var(--line)}
+details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;font-family:var(--f-display);font-size:19px;letter-spacing:.06em;text-transform:uppercase}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-family:var(--f-mono);font-size:14px;color:var(--ink-dim)}
+details[open] summary::after{content:"–"}
+details>div{padding-bottom:10px}
+.songs{margin:4px 0 0;padding-left:20px;columns:2 200px;column-gap:24px;font-size:14px}
+.cue-dec{color:var(--bad);font-family:var(--f-mono);font-size:12px}
+.catlink{font-family:var(--f-mono);font-size:11.5px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--red);text-decoration:none}
+.catlink:hover{text-decoration:underline}
+.back{font-family:var(--f-mono);font-size:12px;color:var(--on-ground-dim);text-decoration:none}
+.pagetitle{font-family:var(--f-display);font-weight:400;font-size:40px;text-transform:uppercase;letter-spacing:.04em;margin:4px 0 14px;line-height:1}
+.note{background:var(--paper-2);border-radius:8px;padding:8px 12px;font-size:14px;margin-top:6px}
+.callout{font-size:14px;color:var(--on-ground-dim);margin:14px 2px 0}
+.todo{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:baseline}
+.todo input{accent-color:var(--ok);width:16px;height:16px}
+.todo.done .tx{text-decoration:line-through;color:var(--ink-dim)}
+.prog{height:4px;background:var(--paper-2);border-radius:9px;overflow:hidden;margin:2px 0 6px}
+.prog i{display:block;height:100%;background:var(--ok)}
+
+/* edit */
+.ed{display:none!important}
+body.editing .ed{display:inline-flex!important}
+.edbtn{border:0;background:none;color:var(--ink-dim);cursor:pointer;font-family:var(--f-mono);font-size:11px;padding:0 2px;text-decoration:underline;text-underline-offset:2px}
+.edbtn:hover{color:var(--red)}
+.addbtn{margin-top:8px;border:1px dashed var(--beige);background:none;color:var(--ink-dim);border-radius:999px;padding:3px 12px;font-family:var(--f-mono);font-size:12px;cursor:pointer}
+.savebar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);color:var(--ink);border-top:3px solid var(--red);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.savebar-in{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
+.sbtn{border:1px solid var(--line);background:none;border-radius:999px;padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:12px;color:var(--ink)}
+.sbtn.solid{background:var(--red);border-color:var(--red);color:#fff}
+.scrim{position:fixed;inset:0;z-index:40;background:rgba(3,20,14,.6);display:flex;align-items:flex-start;justify-content:center;padding:max(24px,env(safe-area-inset-top,0px)) 16px 24px;overflow-y:auto}
+.modal{background:var(--paper);color:var(--ink);border-radius:12px;width:100%;max-width:520px;padding:20px}
+.modal h4{font-family:var(--f-display);font-weight:400;font-size:24px;margin:0 0 12px;text-transform:uppercase}
+.fld{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}
+.fld>span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
+.fld input[type=text],.fld select,.fld textarea{border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:#fff;width:100%}
+.fld textarea{min-height:80px;resize:vertical}
+.fld .help{font-size:12.5px;color:var(--ink-dim)}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:3px 10px;max-height:200px;overflow-y:auto;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fff;font-size:13.5px}
+.checks label{display:flex;gap:6px;align-items:flex-start}
+.checks input{accent-color:var(--red)}
+.mrow{display:flex;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
+.sbtn.danger{color:var(--bad);border-color:var(--bad)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-size:12.5px;padding:9px 16px;border-radius:999px;max-width:calc(100% - 32px)}
+.loading{max-width:980px;margin:0 auto;padding:40px 16px;font-family:var(--f-mono);color:var(--on-ground-dim)}
+
+@media (max-width:640px){
+  .when .full,.when b{display:none}
+  .when select{max-width:150px}
+  .hero{grid-template-columns:1fr}
+  .count{text-align:left;display:flex;align-items:baseline;gap:10px}
+  .date .d{font-size:68px}
+  .tl>li{grid-template-columns:64px minmax(0,1fr)}
+  .tl>li>.st{display:none}
+  .kv>li{grid-template-columns:minmax(0,1fr) auto}
+  .kv .k{grid-column:1/-1}
+  .sheet{padding:4px 16px 14px}
+}
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="top">
+      <a class="brand" href="#overview">Rio<i>&amp;</i>Jay</a>
+      <span class="when"><span class="full" id="whenDate">Sun · Dec 20, 2026</span><b id="whenDays">–</b><select id="teamPick" aria-label="Team page"></select><button class="btn" id="editToggle" hidden>Edit</button></span>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Views"></nav>
+  </div>
+</header>
+<div id="page" class="loading">Loading the plan…</div>
+<div id="savebar"></div>
+<div id="modal"></div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+const PHASE={prep:"Preparation / Pre-nup",ceremony:"Ceremony",cocktail:"Cocktail Hour",reception:"Reception & Dinner",afterparty:"After Party"};
+const SEG={ceremony:"Ceremony",cocktail:"Cocktail Hour",reception:"Reception & Dinner",afterparty:"After Party"};
+const CATS=["Venue, coordination & ceremony","Production","Photo & video","Music","Styling & beauty","Food & drinks","Guest experience"];
+const SHORT={"Venue, coordination & ceremony":"Coordination & ceremony","Production":"Lights, sound & fireworks"};
+const VIEWS={overview:"Overview",timeline:"Timeline & plan",guest:"Guest experience",tracker:"Suppliers"};
+const TL_ST={final:"Final",tentative:"Tentative",proposed:"Proposed"};
+const SUP_ST={confirmed:"Confirmed",pending:"Waiting for reply","needs-info":"Needs info"};
+const TODO_CATS={legal:"Legal & ceremony",suppliers:"Suppliers & payments",venue:"Venue, production & rain plan",guests:"Guests & seating",program:"Music & program",decor:"Printables & decor",party:"Bridal party & the day itself",after:"After the wedding",other:"Other"};
+const SET_ST={set:"Set",confirm:"To confirm"};
+const SCHEMAS={
+  timeline:{label:"Timeline item",fields:[["phase","select","Part of the day",PHASE],["time","text","Time","e.g. 4:30 PM"],["title","text","What happens"],["place","text","Where"],["suppliers","suppliers","Suppliers involved"],["note","textarea","Note"],["owner","text","Handled by"],["photos","textarea","Photos","One image path per line."],["status","select","Status",TL_ST]]},
+  moments:{label:"Moment",fields:[["segment","select","Part of the day",SEG],["title","text","Title"],["detail","textarea","Details"],["owner","text","Handled on the day by"],["suppliers","suppliers","Suppliers"],["photos","textarea","Photos","One image path per line, e.g. img/guest-book.jpg"],["status","select","Status",{confirmed:"Confirmed",tbc:"To be confirmed"}],["showIn","select","Also list under supplier category",Object.assign({"":"(none)"},Object.fromEntries(CATS.map(c=>[c,c])))]]},
+  cues:{label:"Music cue",fields:[["moment","text","Moment"],["song","text","Song"],["performer","supplierOne","Played by"],["cue","textarea","Cue note","Timing, which part of the song, fade."],["status","select","Status",{set:"Set",decide:"Needs a decision"}],["segment","select","Part of the day",{ceremony:"Ceremony",reception:"Reception",ending:"Reception ending"}]]},
+  music:{label:"Song list",fields:[["supplier","supplierOne","Performer"],["title","text","Set","e.g. Cocktail hour"],["songs","textarea","Songs","One per line."]]},
+  suppliers:{label:"Supplier",fields:[["name","text","Name"],["role","text","Role"],["category","select","Category",Object.fromEntries(CATS.map(c=>[c,c]))],["contributes","textarea","What they contribute"],["status","select","Status",SUP_ST],["ingress","text","Ingress (arrival & setup)","e.g. 12:00 PM"],["start","text","Service start","e.g. 4:00 PM"],["end","text","Service end","e.g. 9:00 PM"],["egress","text","Egress (pack-up done)","e.g. 11:30 PM"],["crew","text","Crew count","e.g. 4"],["poc","text","Point of contact (name)"],["phone","text","POC phone number"],["notes","textarea","Notes from Rio","Shown on their team page."],["photo","text","Photo","e.g. img/nina-pallera.jpg"]]},
+  notes:{label:"Note",fields:[["text","textarea","Note"],["suppliers","suppliers","Show on these suppliers’ team pages","Leave all unticked to show it everywhere."]]},
+  logistics:{label:"Arrival & setup question",fields:[["topic","text","Topic"],["question","textarea","Question for the coordinator"],["answer","textarea","Coordinator’s answer","Leave blank until the coordinator answers."]]},
+  rain:{label:"Rain plan question",fields:[["moment","text","Moment"],["question","textarea","Question for the coordinator"],["answer","textarea","Coordinator’s answer","Leave blank until the coordinator answers."]]},
+  party:{label:"Bridal party member",fields:[["name","text","Name or group"],["role","text","Role","e.g. Maid of Honor, Team Bride"],["responsibility","textarea","Responsibilities on the day","One per line: Task | details. For teams: Names - task | details"],["coordinates","suppliers","Coordinates with"],["phone","text","Phone number"],["photo","text","Photo","e.g. img/name.jpg"]]},
+  contacts:{label:"Contact",fields:[["name","text","Name"],["role","text","Role"],["phone","text","Phone number"],["photo","text","Photo","e.g. img/carissa-waje.jpg"]]},
+  entourage:{label:"Entourage line",fields:[["role","text","Role"],["names","textarea","Names"],["pronounce","text","Pronunciation notes for the host"]]},
+  printables:{label:"Printable or sign",fields:[["name","text","Name"],["where","text","Where / when"],["detail","textarea","Details"],["status","select","Status",{planned:"Planned",progress:"In progress",suggested:"Suggested"}],["photo","text","Photo","e.g. img/guest-book.jpg"]]},
+  program:{label:"Program item",fields:[["title","text","What"],["who","text","Who"],["note","textarea","Note"]]},
+  guestexp:{label:"Guest experience item",fields:[["group","select","Type",{music:"Music & bands",activity:"Activity / moment"}],["title","text","Title"],["when","text","When"],["by","text","By / handled by"],["supplier","supplierOne","Songlist from supplier"],["detail","textarea","Details"],["photos","textarea","Card photos","One image path per line."],["expectations","textarea","My expectations","What you want this to look and feel like. One point per line."],["inspoPhotos","textarea","Inspo photos","One image path per line (e.g. img/my-inspo.jpg). Send Claude the photos to add them."],["inspoLinks","textarea","Inspo links","One link per line (Pinterest, Instagram, TikTok, YouTube…)."]]},
+  todos:{label:"Task",fields:[["category","select","Category",TODO_CATS],["task","textarea","Task"],["owner","text","Owner"],["due","text","Due","e.g. Nov 15"],["done","check","Done"]]},
+  venue:{label:"Venue",single:true,fields:[["name","text","Venue"],["area","text","Location"],["ceremony","text","Ceremony"],["reception","text","Reception"],["mapLink","text","Google Maps link"],["photo","text","Photo","e.g. img/vfarm-venue.jpg"]]},
+  dressCode:{label:"Supplier dress code",single:true,fields:[["palette","textarea","Palette","One per line: Name | #hex"],["cameraWho","textarea","On camera: who"],["camera","textarea","On camera: what to wear"],["staffWho","textarea","Behind the scenes: who"],["staff","textarea","Behind the scenes: what to wear"],["avoid","text","Avoid"],["photo","text","Dress code photo","e.g. img/dress-code.jpg"]]},
+  look:{label:"Look & theme",single:true,fields:[["mood","textarea","Mood"],["palette","textarea","Palette","One per line: Name | #hex"],["textures","textarea","Textures","One per line."],["bridalFlowers","textarea","Bridal flowers"],["arrangements","textarea","Other arrangements","One per line."],["flowersSummary","text","Flowers (short line on Overview)"],["photos","textarea","Inspiration photos (shown large on Overview)","One image path per line."],["flowerPhotos","textarea","Flower inspiration photos","One image path per line."],["textureNotes","textarea","Texture notes","One per line, e.g. Chiffon: where it’s used"],["decor","textarea","Decor details","One per line."],["texturePhoto","text","Textures photo","e.g. img/texturess-lace-and-chiffon.jpg"]]},
+  visuals:{label:"Visuals & prints",single:true,fields:[["boards","textarea","Inspiration boards"],["prints","textarea","Prints"]]},
+  meta:{label:"Plan details",single:true,fields:[["finalBy","text","Timeline final by"],["hostNotes","textarea","Note for the host"]]}
+};
+
+let PLAN=null,BASE=null,dirty=0,editing=false,canEdit=false,artifactNS=null,route="overview",team=[];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const lines=s=>String(s||"").split("\n").map(x=>x.trim()).filter(Boolean);
+const clone=o=>JSON.parse(JSON.stringify(o));
+const sup=id=>PLAN.suppliers.find(s=>s.id===id);
+const short=c=>SHORT[c]||c;
+const slugCat=c=>c.toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const catBySlug=s=>CATS.find(c=>slugCat(c)===s);
+const catHref=c=>"#cat-"+slugCat(c);
+const usedCats=()=>CATS.filter(c=>PLAN.suppliers.some(s=>s.category===c));
+const touches=ids=>(ids||[]).some(id=>team.includes(id));
+const isCat=()=>CATS.includes(route);
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,4000)}
+function mins(t){const m=/(\d{1,2}):(\d{2})\s*(AM|PM)?/i.exec(t||"");if(!m)return 9999;let h=+m[1]%12;if((m[3]||"").toUpperCase()==="PM")h+=12;return h*60+ +m[2]}
+const sortTL=a=>a.slice().sort((x,y)=>Object.keys(PHASE).indexOf(x.phase)-Object.keys(PHASE).indexOf(y.phase)||mins(x.time)-mins(y.time));
+function palette(s){return lines(s).map(l=>{const [n,h]=l.split("|").map(x=>x.trim());return{n,h:/^#[0-9a-f]{3,8}$/i.test(h||"")?h:"#cccccc"}})}
+const swatches=s=>`<span class="swatches">${palette(s).map(p=>`<i class="sw" style="background:${esc(p.h)}" title="${esc(p.n)}"></i>`).join("")}<span class="small dim">${palette(s).map(p=>esc(p.n)).join(", ")}</span></span>`;
+const ed=(kind,id)=>`<button class="ed edbtn" data-act="edit" data-kind="${kind}"${id?` data-id="${esc(id)}"`:""}>edit</button>`;
+const add=(kind,extra)=>`<button class="ed addbtn" data-act="add" data-kind="${kind}"${extra||""}>+ ${esc(SCHEMAS[kind].label.toLowerCase())}</button>`;
+const dot=(cls,title)=>`<i class="dot ${cls}" title="${esc(title)}" aria-label="${esc(title)}"></i>`;
+const tlDot=s=>s==="final"?dot("ok","Final"):s==="proposed"?dot("prop","Proposed"):dot("tbc","Tentative");
+const setDot=s=>s==="set"?dot("ok","Set"):dot("tbc","To confirm");
+const supDot=s=>s==="confirmed"?dot("ok","Confirmed"):s==="needs-info"?dot("bad","Needs info"):dot("tbc","Waiting for reply");
+const legend=items=>`<span class="legend">${items.map(([c,l])=>`<span>${dot(c,l)}${esc(l)}</span>`).join("")}</span>`;
+function names(ids,max){
+  ids=(ids||[]).filter(sup);if(!ids.length)return "";
+  if(ids.length===PLAN.suppliers.length)return "All suppliers";
+  if(team.length){const m=ids.filter(i=>team.includes(i)),o=ids.length-m.length;return m.map(i=>`<b>${esc(sup(i).name)}</b>`).join(", ")+(o?` + ${o} other${o>1?"s":""}`:"")}
+  const sh=ids.slice(0,max||3).map(i=>esc(sup(i).name));return sh.join(", ")+(ids.length>sh.length?` +${ids.length-sh.length}`:"");
+}
+function countdown(){
+  const today=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Manila"});
+  const d=Math.round((Date.parse(PLAN.date+"T00:00:00Z")-Date.parse(today+"T00:00:00Z"))/864e5);
+  if(d>0)return{n:d,lbl:d===1?"day to go":"days to go"};
+  if(d===0)return{n:"Today",lbl:"is the day"};
+  return{n:"Married",lbl:""};
+}
+const wd=o=>new Date(PLAN.date+"T12:00:00+08:00").toLocaleDateString("en-US",Object.assign({timeZone:"Asia/Manila"},o));
+
+const img=(src,alt,cls)=>src?`<img class="${cls||"thumb"}" src="${esc(src)}" alt="${esc(alt||"")}" loading="lazy" data-act="zoom">`:"";
+const thumbs=(list,alt)=>{const L=lines(list);return L.length?`<span class="thumbs">${L.map(x=>img(x,alt)).join("")}</span>`:""};
+const strip=list=>{const L=lines(list);return L.length?`<div class="strip">${L.map(x=>img(x,x.replace(/^img\/|\.jpg$/g,"").replace(/-/g," "),"sthumb")).join("")}</div>`:""};
+const initials=n=>String(n).replace(/\(.*?\)/g,"").split(/[\s&.]+/).filter(w=>/^[A-Za-z]/.test(w)&&!/^(by|the|for|of|and|ph)$/i.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join("")||"•";
+const supAv=s=>s.photo?img(s.photo,s.name,"sav"):`<span class="sav mono" aria-hidden="true">${esc(initials(s.name))}</span>`;
+function catCards(detail){return `<div class="cats">${usedCats().map(cat=>{const L=PLAN.suppliers.filter(s=>s.category===cat),X=PLAN.moments.filter(m=>m.showIn===cat).length;return `<section class="seg"><header class="seghd"><a class="segt seglink" href="${catHref(cat)}">${esc(cat)} <span aria-hidden="true">↗</span></a><span class="segr">${L.length+X} ${L.length+X===1?"item":"items"}</span></header><div class="segbd"><ul class="list">${L.map(s=>`<li class="srow">${supAv(s)}<div style="min-width:0;flex:1"><div class="row"><span>${supDot(s.status)} <b>${esc(s.name)}</b></span>${ed("suppliers",s.id)}</div><div class="small dim">${esc(detail?(s.contributes||s.role):s.role)}</div></div></li>`).join("")}${PLAN.moments.filter(m=>m.showIn===cat).map(m=>`<li class="srow">${lines(m.photos)[0]?img(lines(m.photos)[0],m.title,"sav"):`<span class="sav mono">${esc(initials(m.title))}</span>`}<div style="min-width:0;flex:1"><div class="row"><span>${m.status==="confirmed"?dot("ok","Set"):dot("tbc","To be confirmed")} <b>${esc(m.title)}</b></span>${ed("moments",m.id)}</div><div class="small dim">${esc(m.owner||m.detail)}</div></div></li>`).join("")}</ul><a class="teambtn" href="${catHref(cat)}">Open ${esc(short(cat))} page <span aria-hidden="true">→</span></a></div></section>`}).join("")}</div>`}
+function partyList(list){return `<ul class="list">${list.map(x=>`<li class="srow pty">${x.photo?img(x.photo,x.name,"sav"):`<span class="sav mono">${esc(initials(x.name))}</span>`}<div style="min-width:0;flex:1"><div class="row"><span><b>${esc(x.name)}</b> <span class="prole">${esc(x.role)}</span></span><span>${x.phone?`<span class="phone">${esc(x.phone)}</span>`:""} ${ed("party",x.id)}</span></div><ul class="resp">${lines(x.responsibility).map(r=>{const [main,det]=r.split(" | ");const m=/^(.+?) - (.+)$/.exec(main);return `<li><span class="rt1">${m?`<b>${esc(m[1])}</b> – ${esc(m[2])}`:esc(main)}</span>${det?`<ul class="rsub"><li>${esc(det)}</li></ul>`:""}</li>`}).join("")}</ul></div></li>`).join("")}</ul>${add("party")}`}
+/* ---------- blocks ---------- */
+function timelineList(items,noHead){
+  let out="",last="";
+  sortTL(items).forEach(t=>{
+    if(!noHead&&t.phase!==last){last=t.phase;const g=sortTL(items.filter(x=>x.phase===t.phase));out+=`<li class="phase"><span class="phn">${Object.keys(PHASE).indexOf(t.phase)+1}</span><span class="pht">${PHASE[t.phase]}</span><span class="phr">${esc(g[0].time)}${g.length>1?` – ${esc(g[g.length-1].time)}`:""}</span></li>`}
+    out+=`<li><span class="t">${esc(t.time)}</span><span><b>${esc(t.title)}</b>${t.place?` <span class="dim small">· ${esc(t.place)}</span>`:""}${t.note?`<div class="small dim">${esc(t.note)}</div>`:""}${t.owner?`<div class="owner">→ ${esc(t.owner)}</div>`:""}${t.showProgram?programList():""}<div class="who">${names(t.suppliers,3)}</div></span><span class="st">${thumbs(t.photos,t.title)}${tlDot(t.status)} ${ed("timeline",t.id)}</span></li>`;
+  });
+  return `<ul class="list tl">${out||`<li class="dim">Nothing scheduled yet.</li>`}</ul>`;
+}
+const qaList=(arr,kk,kind)=>`<ul class="list qa">${arr.map(x=>`<li><span class="k">${esc(x[kk])}</span><span><span class="qq">${esc(x.question)}</span>${x.answer?`<span class="qa-a">${esc(x.answer)}</span>`:`<span class="qa-w">Waiting for the coordinator’s answer</span>`}</span><span>${x.answer?dot("ok","Answered"):dot("tbc","Open")} ${ed(kind,x.id)}</span></li>`).join("")}</ul>`;
+const kvList=(arr,kk,vk,kind)=>`<ul class="list kv">${arr.map(x=>`<li><span class="k">${esc(x[kk])}</span><span>${esc(x[vk])}</span><span>${setDot(x.status)} ${ed(kind,x.id)}</span></li>`).join("")}</ul>`;
+function venueBlock(){
+  const v=PLAN.venue;
+  return `<h2>Venue ${ed("venue")}</h2><p><b>${esc(v.name)}</b>, ${esc(v.area)}</p><p class="small dim">${esc(v.ceremony)} · ${esc(v.reception)}</p>
+  <p class="small" style="margin-top:4px">${v.mapLink?`<a href="${esc(v.mapLink)}" target="_blank" rel="noopener">Google Maps ↗</a>`:`<span class="dim">Map link to follow</span>`}</p>
+  <h3>Contact persons</h3><ul class="list">${PLAN.contacts.map(c=>`<li class="row cp"><span class="cpn">${img(c.photo,c.name,"cimg")}<span><b>${esc(c.name)}</b><br><span class="small dim">${esc(c.role)}</span></span></span><span>${c.phone?`<span class="phone">${esc(c.phone)}</span>`:`<span class="small dim">to follow</span>`} ${ed("contacts",c.id)}</span></li>`).join("")}</ul>${add("contacts")}`;
+}
+function dressCards(){const d=PLAN.dressCode;return `<h3>Colors</h3><div>${swatches(d.palette)}</div><ul class="list kv" style="margin-top:8px"><li><span class="k">On camera</span><span><span class="dcwho">${esc(d.cameraWho)}</span>${esc(d.camera)}</span><span></span></li><li><span class="k">Behind the scenes</span><span><span class="dcwho">${esc(d.staffWho)}</span>${esc(d.staff)}</span><span></span></li><li><span class="k">Avoid</span><span>${esc(d.avoid)}</span><span></span></li></ul>`}
+function dressBlock(){const d=PLAN.dressCode;return `<div class="dcwrap">${img(d.photo,"Suppliers & staff dress code","dcbig")}<div style="min-width:0">${dressCards()} ${ed("dressCode")}</div></div>`}
+function notesBlock(list){return list.length?`<ul class="list">${list.map(n=>`<li class="small">${esc(n.text)} ${ed("notes",n.id)}</li>`).join("")}</ul>${add("notes")}`:""}
+function momentsList(list,withSeg){return `<ul class="list">${list.map(m=>`<li class="mo"><div><div class="row"><span><b>${esc(m.title)}</b>${withSeg?` <span class="small dim">· ${esc(SEG[m.segment])}</span>`:""}</span><span>${m.status==="confirmed"?dot("ok","Set"):dot("tbc","To be confirmed")} ${ed("moments",m.id)}</span></div><div class="small dim">${esc(m.detail)}${m.owner?` <span style="color:var(--ink)">→ ${esc(m.owner)}</span>`:""}</div></div>${thumbs(m.photos,m.title)}</li>`).join("")}</ul>`}
+function cuesList(list){let seg="";return `<ul class="list kv">${list.map(c=>{const p=sup(c.performer),sg=c.segment==="reception"?"Reception":c.segment==="ending"?"Reception ending":"Ceremony",hd=sg!==seg?(seg=sg,`<li class="cuehd">${sg}</li>`):"";return `${hd}<li><span class="k">${esc(c.moment)}</span><span>${esc(c.song)}${c.cue?`<div class="small dim">${esc(c.cue)}</div>`:""}</span><span class="small">${p?esc(p.name.replace(/ \(.+\)$/,"")):`<span class="cue-dec">to decide</span>`} ${ed("cues",c.id)}</span></li>`}).join("")}</ul>${add("cues")}`}
+function entourageList(){return `<ol class="list small" style="list-style:decimal;padding-left:20px">${PLAN.entourage.map(e=>`<li style="padding-left:4px"><b>${esc(e.role)}:</b> ${esc(e.names)}${e.pronounce?` <span class="dim">(say: ${esc(e.pronounce)})</span>`:""} ${ed("entourage",e.id)}</li>`).join("")}</ol>${add("entourage")}<p class="small dim" style="margin-top:6px">${esc(PLAN.hostNotes)} ${ed("meta")}</p>`}
+function songsBlock(ids){
+  return PLAN.music.filter(m=>!ids||ids.includes(m.supplier)).map(m=>{const s=sup(m.supplier),L=lines(m.songs);return `<details><summary><span>${esc(s?s.name:"")} · ${esc(m.title)}</span></summary><div><ol class="songs">${L.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>${ed("music",m.id)}</div></details>`}).join("")+add("music");
+}
+
+/* ---------- views ---------- */
+function vOverview(){
+  const c=countdown(),v=PLAN.venue,d=PLAN.dressCode,l=PLAN.look,general=PLAN.notes.filter(n=>!n.suppliers.length);
+  const n=(i,label)=>`<h2><span><span class="num">${i}</span>${label}</span>`;
+  return `<div class="hero">
+    <div class="date"><span class="d">${esc(wd({day:"numeric"}))}</span><span class="s">${esc(wd({month:"long"}))} ${esc(wd({year:"numeric"}))}<span>${esc(wd({weekday:"long"}))} · ${esc(v.name)}</span></span></div>
+    <div class="count"><b class="cd-n">${esc(c.n)}</b><span class="cd-l">${esc(c.lbl)}</span></div>
+  </div>
+  <div class="sheet">${n(1,"Venue & contact persons")} ${ed("venue")}</h2>
+    <div class="vgrid">${img(v.photo,v.name,"vimg")}<div style="min-width:0"><p><b>${esc(v.name)}</b>, ${esc(v.area)}</p><ul class="list kv" style="margin-top:4px"><li><span class="k">Ceremony</span><span>${esc(v.ceremony)}</span><span></span></li><li><span class="k">Reception</span><span>${esc(v.reception)}</span><span></span></li><li><span class="k">Map</span><span>${v.mapLink?`<a href="${esc(v.mapLink)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>`:`<span class="dim">Link to follow</span>`}</span><span></span></li></ul>
+    <h3>Contact persons</h3><ul class="list">${PLAN.contacts.map(x=>`<li class="row cp"><span class="cpn">${img(x.photo,x.name,"cimg")}<span><b>${esc(x.name)}</b><br><span class="small dim">${esc(x.role)}</span></span></span><span>${x.phone?`<span class="phone">${esc(x.phone)}</span>`:`<span class="small dim">number to follow</span>`} ${ed("contacts",x.id)}</span></li>`).join("")}</ul>${add("contacts")}</div></div>
+  </div>
+  <div class="sheet">${n(2,"Supplier dress code")} ${ed("dressCode")}</h2>
+    <div class="dcwrap">${img(d.photo,"Suppliers & staff dress code","dcbig")}<div style="min-width:0">${dressCards()}</div></div>
+  </div>
+  <div class="sheet">${n(3,"Look & theme")} ${ed("look")}</h2>
+    <p>${esc(l.mood)}</p><div style="margin-top:6px">${swatches(l.palette)}</div>
+    ${lines(l.photos).length?`<div class="inspo">${lines(l.photos).map(x=>`<figure>${img(x,x.replace(/^img\/|\.jpg$/g,"").replace(/-/g," "),"iimg")}<figcaption>${esc(x.replace(/^img\/|\.jpg$/g,"").replace(/-inspo$/,"").replace(/-/g," "))} inspiration</figcaption></figure>`).join("")}</div>`:""}
+    <div class="lookgrid">
+      <div class="lookcol"><h3>Flowers</h3><p><b>Bridal:</b> ${esc(l.bridalFlowers)}</p><ul class="resp" style="margin-top:6px">${lines(l.arrangements).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${lines(l.flowerPhotos).length?`<div class="fphotos">${lines(l.flowerPhotos).map(x=>`<figure>${img(x,x.replace(/^img\/|\.jpg$/g,"").replace(/-/g," "),"fimg")}<figcaption>${esc(x.replace(/^img\/|\.jpg$/g,"").replace(/-inspo$/,"").replace(/-/g," "))}</figcaption></figure>`).join("")}</div>`:""}</div>
+      <div class="lookcol"><h3>Textures</h3><p>${lines(l.textures).map(esc).join(", ")}</p><div class="txrow">${img(l.texturePhoto,"Textures: lace and chiffon","tximg")}<ul class="resp txn">${lines(l.textureNotes).map(x=>{const m=/^([^:]+):\s*(.+)$/.exec(x);return `<li>${m?`<b>${esc(m[1])}</b> · ${esc(m[2])}`:esc(x)}</li>`}).join("")}</ul></div><h3>Decor details</h3><ul class="resp">${lines(l.decor).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+    </div>
+  </div>
+  <div class="sheet">${n(4,"Timeline & locations")}</h2><p class="tap">Tap a part of the day to see its schedule, locations and stations.</p>
+    ${Object.entries(PHASE).map(([k,label])=>{const items=sortTL(PLAN.timeline.filter(t=>t.phase===k)),ms=PLAN.moments.filter(m=>m.segment===k);if(!items.length&&!ms.length)return "";return `<details class="tgrp ovph"><summary><span>${esc(label)}</span><span class="meta">${items.length?`${esc(items[0].time)}${items.length>1?` – ${esc(items[items.length-1].time)}`:""} · `:""}${items.length} ${items.length===1?"item":"items"}${ms.length?` · ${ms.length} ${ms.length===1?"station":"stations"}`:""}</span></summary><div>${phaseInner(k,items,ms)}</div></details>`}).join("")}
+    <p class="small dim" style="margin-top:6px">${legend([["ok","Final"],["tbc","Tentative"],["prop","Proposed"]])} Final by ${esc(PLAN.finalBy)}.</p>
+    <a class="teambtn bigbtn" href="#timeline">Open Timeline &amp; plan for the entourage, bridal party roles, and arrival &amp; setup <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="sheet">${n(5,"Suppliers")} <span class="meta">${PLAN.suppliers.filter(s=>s.status==="confirmed").length===PLAN.suppliers.length?`All ${PLAN.suppliers.length} confirmed`:`${PLAN.suppliers.filter(s=>s.status==="confirmed").length} of ${PLAN.suppliers.length} confirmed`} · <a class="catlink" href="#tracker">details →</a></span></h2>
+    ${catCards(false)}
+  </div>
+  ${general.length?`<p class="callout">${general.map(x=>esc(x.text)).join(" ")}</p>`:""}
+  <p class="callout">Supplier? Pick your team from the <b>Team page</b> menu above for your call times, cues and notes.</p>`;
+}
+function programList(){const P=PLAN.program||[];if(!P.length&&!editing)return "";
+  return `<ul class="pglist">${P.map((x,i)=>`<li><span class="pgb"><b>${esc(x.title)}</b>${x.who?` <span class="dim">· ${esc(x.who)}</span>`:""}${x.note?` <span class="small dim">(${esc(x.note.replace(/\.$/,""))})</span>`:""}</span><span class="pgtools"><button class="ed pgmv" data-act="mvprog" data-i="${i}" data-d="-1" aria-label="Move up"${i?"":" disabled"}>↑</button><button class="ed pgmv" data-act="mvprog" data-i="${i}" data-d="1" aria-label="Move down"${i<P.length-1?"":" disabled"}>↓</button>${ed("program",x.id)}</span></li>`).join("")}</ul>${add("program")}`}
+function phaseInner(k,items,ms){return `<div class="blk sched"><div class="blkh"><span class="blkt">Schedule</span><span class="blks">What happens, when and where</span></div>${timelineList(items,true)}${add("timeline",` data-phase="${k}"`)}</div>
+    ${SEG[k]&&(ms.length||editing)?`<div class="blk stns"><div class="blkh"><span class="blkt">Stations &amp; activities</span><span class="blks">${ms.length} ${ms.length===1?"item":"items"} running during this part</span></div>${ms.length?`<div class="mgrid">${momentsList(ms)}</div>`:`<p class="small dim">None yet.</p>`}${add("moments",` data-segment="${k}"`)}</div>`:""}`}
+function vTimeline(){
+  const parts=Object.keys(PHASE).map((k,i)=>{const items=sortTL(PLAN.timeline.filter(t=>t.phase===k)),ms=PLAN.moments.filter(m=>m.segment===k);if(!items.length&&!ms.length)return "";
+    const rng=items.length?`${items[0].time}${items.length>1?` – ${items[items.length-1].time}`:""}`:"";
+    return `<section class="tphase"><div class="phasebar"><span class="phn">${i+1}</span><span class="pht">${PHASE[k]}</span><span class="phr">${esc(rng)}</span></div>
+${phaseInner(k,items,ms)}</section>`}).join("");
+  return `<div class="sheet"><h2>The day ${legend([["ok","Final / set"],["tbc","Tentative / TBC"],["prop","Proposed"]])}</h2><p class="small dim">Final by ${esc(PLAN.finalBy)}. Times may still move until then. ${ed("meta")}</p>${parts}</div>${vPlan()}`;
+}
+function vPlan(){
+  const l=PLAN.look,v=PLAN.visuals,dec=PLAN.cues.filter(c=>c.status==="decide").length;
+  return `<div class="sheet"><h2>Ceremony entourage order <span class="tbcb">Order TBC</span></h2>${entourageList()}</div>
+  <div class="sheet"><h2>Bridal party &amp; assigned roles</h2><p class="small dim">Who’s helping on the day and what they’re assigned to.</p>${partyList(PLAN.party||[])}</div>
+  <div class="sheet"><h2>Arrival & setup ${legend([["ok","Answered"],["tbc","Open"]])}</h2><p class="small dim">Questions for our coordinator. Answers will show here once they’re in, so check back closer to the day.</p>${qaList(PLAN.logistics,"topic","logistics")}${add("logistics")}
+    ${PLAN.notes.some(n=>!n.suppliers.length)?`<h3>Please note</h3>${notesBlock(PLAN.notes.filter(n=>!n.suppliers.length))}`:""}
+    <details style="margin-top:12px"><summary>Rain plan</summary><div>${qaList(PLAN.rain,"moment","rain")}${add("rain")}</div></details></div>`;
+}
+function vTracker(){
+  const S=PLAN.suppliers,E=canEdit;S.forEach(s=>{if(!s.tracker)s.tracker={briefSent:false,pending:[]};if(!s.tracker.meals)s.tracker.meals={breakfast:"",lunch:"",dinner:""}});
+  const ML=[["breakfast","Breakfast"],["lunch","Lunch"],["dinner","Dinner"]],MO={"":"Not needed",provided:"We provide",paid:"In their rate"};
+  const mealCount=k=>{const L=S.filter(s=>s.tracker.meals[k]==="provided");const crew=L.reduce((a,s)=>a+(parseInt(s.crew)||0),0);const unk=L.filter(s=>!parseInt(s.crew)).length;return `${L.length} ${L.length===1?"supplier":"suppliers"}${crew?` · ${crew} pax`:""}${unk?` (${unk} without crew count)`:""}`};
+  const mealSel=s=>`<div class="meals">${ML.map(([k,l])=>`<label class="meal ${s.tracker.meals[k]||"none"}"><span>${l}</span><select id="meal-${esc(s.id)}-${k}" data-act="meal" data-id="${esc(s.id)}" data-k="${k}">${Object.entries(MO).map(([v,t])=>`<option value="${v}"${s.tracker.meals[k]===v?" selected":""}>${t}</option>`).join("")}</select></label>`).join("")}</div>`;
+  const val=(v,label,empty)=>`<span class="tk ${v?"y":"n"}">${v?`${label} ${esc(v)}`:`${label} ${empty}`}</span>`;
+  const openCount=S.reduce((a,s)=>a+s.tracker.pending.length,0),miss=f=>S.filter(s=>!s[f]).length,conf=S.filter(s=>s.status==="confirmed").length;
+  const row=s=>{const t=s.tracker;return `<li class="trow${E?"":" pub"}"><div class="tname">${supAv(s)}<div style="min-width:0"><div class="row"><span>${supDot(s.status)} <b>${esc(s.name)}</b></span>${ed("suppliers",s.id)}</div><div class="small dim">${esc(s.contributes||s.role)}</div>
+    <div class="poc"><span class="k">POC</span> ${s.poc?`<b>${esc(s.poc)}</b>`:`<span class="dim">to follow</span>`}${s.phone?` · <span class="phone">${esc(s.phone)}</span>`:` · <span class="dim small">number to follow</span>`}</div>
+    <div class="tks">${val(s.ingress,"In","to follow")}${s.start||s.end?`<span class="tk y">Service ${esc(s.start||"?")}–${esc(s.end||"?")}</span>`:`<span class="tk n">Service to follow</span>`}${val(s.egress,"Out","to follow")}${val(s.crew,"Crew","to follow")}<a class="briefbtn" href="#for-${esc(s.id)}">View brief →</a></div>${E?mealSel(s):""}</div></div>
+    ${E?`<div class="tpend">${t.pending.length?`<ul class="pl">${t.pending.map((x,i)=>`<li><span>${esc(x)}</span><button class="xbtn" data-act="donepend" data-id="${esc(s.id)}" data-i="${i}" title="Mark done and remove" aria-label="Mark done">✓</button></li>`).join("")}</ul>`:`<span class="small dim">Nothing pending</span>`}
+    <div class="padd"><input type="text" id="pend-${esc(s.id)}" placeholder="Add pending item…" data-pend="${esc(s.id)}"><button class="addbtn" data-act="addpend" data-id="${esc(s.id)}">Add</button></div></div>`:""}</li>`};
+  const extra=cat=>PLAN.moments.filter(m=>m.showIn===cat).map(m=>`<li class="trow pub"><div class="tname">${lines(m.photos)[0]?img(lines(m.photos)[0],m.title,"sav"):`<span class="sav mono">${esc(initials(m.title))}</span>`}<div style="min-width:0"><div class="row"><span>${m.status==="confirmed"?dot("ok","Set"):dot("tbc","To be confirmed")} <b>${esc(m.title)}</b> <span class="prole">activity</span></span>${ed("moments",m.id)}</div><div class="small dim">${esc(m.owner||m.detail)}</div></div></div></li>`).join("");
+  return `<div class="sheet"><h2>Suppliers <small>${conf} of ${S.length} suppliers confirmed</small></h2>
+  ${E?`<div class="tstats"><div><b>${openCount}</b><span>pending items</span></div><div><b>${S.filter(s=>!(s.ingress&&s.start&&s.end&&s.egress)).length}</b><span>missing times</span></div><div><b>${miss("crew")}</b><span>missing crew count</span></div><div><b>${miss("poc")}</b><span>missing POC</span></div><div><b>${miss("phone")}</b><span>missing phone</span></div></div>
+  <div class="mealsum"><b>Staff meals we provide</b>${ML.map(([k,l])=>`<span><i>${l}</i> ${mealCount(k)}</span>`).join("")}</div>
+  <p class="small dim">Only you two see the summary, meals and pending columns. POC, phone, times and crew fill in from each supplier (Edit). “View brief” opens that supplier’s team page.</p>`:`<p class="small dim">Every supplier on the day, grouped by team. Open your team’s page for your call times, cues and notes.</p>`}
+  ${legend([["ok","Confirmed"],["tbc","Waiting for reply"],["bad","Needs info"]])}
+  ${usedCats().map((cat,i)=>{const L=S.filter(s=>s.category===cat);return `<div class="tcat"><span class="phn">${i+1}</span><a class="pht seglink" href="${catHref(cat)}">${esc(cat)}</a><a class="tcatbtn" href="${catHref(cat)}">Open team page →</a></div><ul class="list">${L.map(row).join("")}${extra(cat)}</ul>`}).join("")}
+  ${add("suppliers")}${E?`<p class="small dim" style="margin-top:8px">Changes here are edits; publish to save them.</p>`:""}</div>
+  ${timesSheet(S,E)}${contactSheet(S,E)}`;
+}
+function supTable(S,E,o){
+  const K=o.cols,n=K.length+1;
+  const cell=(s,k)=>E?`<input type="${k==="crew"?"number":k==="phone"?"tel":"text"}"${k==="crew"?' min="0" inputmode="numeric"':""} class="tin" id="tm-${esc(s.id)}-${k}" data-act="stime" data-id="${esc(s.id)}" data-k="${k}" value="${esc(s[k]||"")}" placeholder="–" aria-label="${esc(s.name)} ${k}">`:(s[k]?(k==="phone"?`<a class="phone" href="tel:${esc(s[k].replace(/[^0-9+]/g,""))}">${esc(s[k])}</a>`:esc(s[k])):`<span class="dim" title="To follow">—</span>`);
+  const done=S.filter(s=>K.every(([k])=>s[k])).length;
+  return `<div class="sheet" id="${o.id}"><h2>${o.title} <small>${done} of ${S.length} complete</small></h2>
+  <p class="small dim">${o.note} A dash means it’s still to follow.${E?" Type in any box; publish to save.":""}</p>
+  <div class="tscroll"><table class="ttimes${o.cls?" "+o.cls:""}"><thead><tr><th>Supplier</th>${K.map(([,l])=>`<th>${l}</th>`).join("")}</tr></thead>
+  ${usedCats().map(cat=>`<tbody><tr class="tgrp"><th colspan="${n}">${esc(cat)}</th></tr>${S.filter(s=>s.category===cat).map(s=>`<tr><th scope="row">${esc(s.name)}</th>${K.map(([k])=>`<td class="c-${k}">${cell(s,k)}</td>`).join("")}</tr>`).join("")}</tbody>`).join("")}</table></div></div>`;
+}
+function timesSheet(S,E){return supTable(S,E,{id:"times",title:"Supplier times",cols:[["ingress","Ingress"],["start","Start"],["end","End"],["egress","Egress"]],note:"Ingress is when the team arrives to set up, start and end are when they’re serving or performing, and egress is when pack-up is done and they’ve left. Venue ingress opens at 12:00 PM."})}
+function contactSheet(S,E){return supTable(S,E,{id:"contacts",title:"Contact & crew",cls:"tcontact",cols:[["poc","Contact person"],["phone","Contact number"],["crew","Crew"]],note:"Who to call on the day, their number, and how many crew are coming (for meals and venue passes)."})}
+function gxInspo(x){
+  const ex=lines(x.expectations),ph=lines(x.inspoPhotos),lk=lines(x.inspoLinks).filter(u=>/^https?:\/\//i.test(u));
+  if(!ex.length&&!ph.length&&!lk.length)return canEdit?`<button class="ed edbtn gxadd" data-act="edit" data-kind="guestexp" data-id="${esc(x.id)}">+ inspo &amp; expectations</button>`:"";
+  const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return "link"}};
+  return `<details class="gxsong gxinspo"><summary>Inspo &amp; expectations</summary><div class="gxib">
+  ${ex.length?`<div class="gxil">My expectations</div><ul class="gxex">${ex.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}
+  ${ph.length?`<div class="gxil">Inspo photos</div><div class="gxiph">${ph.map(p=>img(p,x.title+" inspo","gxithumb")).join("")}</div>`:""}
+  ${lk.length?`<div class="gxil">Inspo links</div><ul class="gxlk">${lk.map((u,n)=>`<li><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(host(u))}${lk.filter(v=>host(v)===host(u)).length>1?" "+(lk.slice(0,n+1).filter(v=>host(v)===host(u)).length):""} ↗</a></li>`).join("")}</ul>`:""}
+  </div></details>`;
+}
+function gxSongs(id){
+  const C=PLAN.cues.filter(c=>c.performer===id),M=PLAN.music.filter(m=>m.supplier===id);
+  const box=(t,n,body)=>`<details class="gxsong"><summary>${esc(t)}</summary>${body}</details>`;
+  let h="";
+  const cb=(t,L)=>{if(L.length)h+=box(t,L.length,`<ol class="songs">${L.map(c=>`<li><span class="dim">${esc(c.moment)}:</span> ${esc(c.song)}</li>`).join("")}</ol>`)};
+  cb("Ceremony",C.filter(c=>!c.segment||c.segment==="ceremony"));
+  M.forEach(m=>{const L=lines(m.songs);h+=box(m.title,L.length,`<ol class="songs">${L.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>${ed("music",m.id)}`)});
+  cb("Reception dances",C.filter(c=>c.segment==="reception"));
+  cb("Reception ending",C.filter(c=>c.segment==="ending"));
+  return h?`<div class="gxsongs">${h}</div>`:"";
+}
+function printablesSheet(){const v=PLAN.visuals;return `<div class="sheet"><h2>Printables &amp; signages ${legend([["ok","Planned"],["prop","Suggested"],["tbc","In progress"]])}</h2><p class="small dim">All the papers, boards and signs for the day. Suggested items are ideas to keep or delete.</p>
+  <div class="prlist">${(PLAN.printables||[]).map(x=>`<div class="pritem">${x.photo?img(x.photo,x.name,"prthumb"):`<span class="prthumb ph" aria-hidden="true">${esc(initials(x.name))}</span>`}<div style="min-width:0;flex:1"><div class="row"><span>${x.status==="planned"?dot("ok","Planned"):x.status==="progress"?dot("tbc","In progress"):dot("prop","Suggested")} <b>${esc(x.name)}</b></span>${ed("printables",x.id)}</div><div class="k" style="margin-top:2px">${esc(x.where)}</div><div class="small dim">${esc(x.detail)}</div></div></div>`).join("")}</div>${add("printables")}
+  ${v.boards?`<p class="small dim" style="margin-top:10px">${esc(v.boards)} ${ed("visuals")}</p>`:""}</div>`}
+function vGuest(){
+  const G=PLAN.guestexp||[];
+  const card=x=>{const ph=lines(x.photos);return `<article class="gx${x.group==="activity"?" gxr":""}">${ph.length?`<div class="gxph${ph.length>1?" two":""}">${ph.slice(0,2).map(p=>img(p,x.title,"gximg")).join("")}</div>`:`<div class="gxph none"><span>${esc(initials(x.title))}</span></div>`}<div class="gxb"><div class="row"><b class="gxt">${esc(x.title)}</b>${ed("guestexp",x.id)}</div><div class="gxw">${esc(x.when)}</div>${x.by?`<div class="owner">→ ${esc(x.by)}</div>`:""}<p class="small dim" style="margin-top:4px">${esc(x.detail)}</p>${x.supplier?gxSongs(x.supplier):""}${x.group==="activity"?gxInspo(x):""}</div></article>`};
+  const sec=(g,label,sub)=>{const L=G.filter(x=>x.group===g);return `<div class="sheet"><h2>${label} <small>${L.length} ${L.length===1?"item":"items"}</small></h2><p class="small dim">${sub}</p><div class="gxgrid${g==="activity"?" rows":""}">${L.map(card).join("")}</div>${add("guestexp")}</div>`};
+  const dec=PLAN.cues.filter(c=>c.status==="decide").length;return `${sec("music","Music & bands","Who’s playing, from the ceremony to the end of the after party. Tap a set to see its songlist.")}<div class="sheet" id="cues"><h2>Music cues ${dec?`<small style="color:var(--bad)">${dec} to decide</small>`:""}</h2><p class="small dim">Which song plays at each key moment, and who plays it.</p>${cuesList(PLAN.cues)}</div>${sec("activity","Activities & moments","What guests will see and join in, in order through the day.")}${printablesSheet()}`;
+}
+function vChecklist(){
+  const T=PLAN.todos||[],done=T.filter(t=>t.done).length;
+  return `<div class="sheet"><h2>Couple checklist <small>${done} of ${T.length} done · only you two see this</small></h2><div class="prog"><i style="width:${T.length?Math.round(done/T.length*100):0}%"></i></div>
+  ${Object.entries(TODO_CATS).map(([ck,cl])=>{const L=T.filter(t=>(TODO_CATS[t.category]?t.category:"other")===ck);if(!L.length)return "";const L2=[...L.filter(t=>!t.done),...L.filter(t=>t.done)];const dn=L.filter(t=>t.done).length;return `<div class="tdcat"><h3>${esc(cl)}</h3><span class="tdcn">${dn} of ${L.length} done</span></div><ul class="list">${L2.map(t=>`<li class="todo${t.done?" done":""}"><input type="checkbox" id="todo-${esc(t.id)}" data-act="todo" data-id="${esc(t.id)}"${t.done?" checked":""} aria-label="Done"><span><span class="tx">${esc(t.task)}</span> <span class="small dim">· ${esc(t.owner)}</span> ${ed("todos",t.id)}</span><span class="tdr"><span class="t" style="color:var(--ink-dim)">${esc(t.due)}</span><button class="xbtn" data-act="deltodo" data-id="${esc(t.id)}" aria-label="Delete task" title="Delete">✕</button></span></li>`).join("")}</ul>`}).join("")}
+  <button class="addbtn" data-act="add" data-kind="todos">+ task</button><p class="small dim" style="margin-top:6px">Ticking a task is an edit; publish to save it.</p></div>`;
+}
+function vTeam(cat){
+  const members=PLAN.suppliers.filter(s=>s.category===cat);
+  const tl=PLAN.timeline.filter(t=>touches(t.suppliers)),mo=PLAN.moments.filter(m=>touches(m.suppliers));
+  const cues=cat==="Music"?PLAN.cues:PLAN.cues.filter(x=>team.includes(x.performer));
+  const notes=PLAN.notes.filter(n=>!n.suppliers.length||touches(n.suppliers));
+  const ent=["Venue, coordination & ceremony","Music","Photo & video"].includes(cat);
+  return `<a class="back" href="#tracker">← Suppliers</a><div class="pagetitle">${esc(short(cat))}</div>
+  <div class="sheet"><h2>Your team ${legend([["ok","Confirmed"],["tbc","Waiting"],["bad","Needs info"]])}</h2>
+    <ul class="list">${members.map(s=>`<li class="mem">${img(s.photo,s.name,"avatar")}<div style="min-width:0"><div class="row"><span>${supDot(s.status)} <b>${esc(s.name)}</b> <span class="small dim">· ${esc(s.role)}</span></span>${ed("suppliers",s.id)}</div>
+      <div class="small" style="margin-top:2px"><span class="k">In</span> ${esc(s.ingress||"to follow")} &nbsp; <span class="k">Service</span> ${s.start||s.end?`${esc(s.start||"?")}–${esc(s.end||"?")}`:"to follow"} &nbsp; <span class="k">Out</span> ${esc(s.egress||"to follow")} &nbsp; <span class="k">Crew</span> ${esc(s.crew||"send count")} &nbsp; <span class="k">POC</span> ${esc(s.poc||"to follow")}${s.phone?` · <span class="phone">${esc(s.phone)}</span>`:""}</div>
+      ${s.contributes?`<div class="small dim">${esc(s.contributes)}</div>`:""}${s.notes?`<div class="note"><b>From Rio:</b> ${esc(s.notes)}</div>`:""}</div></li>`).join("")}</ul>
+    ${notes.length?`<h3>Please note</h3>${notesBlock(notes)}`:""}</div>
+  <div class="sheet"><h2>Where you’re needed ${legend([["ok","Final"],["tbc","Tentative"],["prop","Proposed"]])}</h2>${timelineList(tl)}</div>
+  ${mo.length||cues.length?`<div class="sheet">${mo.length?`<h2>Your moments</h2>${momentsList(mo,true)}`:""}${cues.length?`<h2>Music cues</h2>${cuesList(cues)}`:""}${cat==="Music"?`<div style="margin-top:10px">${songsBlock(team)}</div>`:""}</div>`:""}
+  <div class="sheet" style="padding-top:2px">
+    <details><summary>Arrival & setup</summary><div>${qaList(PLAN.logistics,"topic","logistics")}</div></details>
+    <details><summary>Venue & contacts</summary><div>${venueBlock()}</div></details>
+    <details><summary>Rain plan</summary><div>${qaList(PLAN.rain,"moment","rain")}</div></details>
+    <details><summary>Dress code</summary><div>${dressBlock()}</div></details>
+    ${ent?`<details><summary>Entourage order</summary><div>${entourageList()}</div></details>`:""}
+  </div>
+  <p class="callout">Please reply to Rio once your team has read this, with your call time, crew count and any power or setup needs. Screenshot it before the day; signal at the venue may be weak.</p>`;
+}
+
+/* ---------- render ---------- */
+function renderBar(){
+  const c=countdown();
+  $("#whenDate").textContent=wd({weekday:"short",month:"short",day:"numeric",year:"numeric"});
+  $("#whenDays").textContent=`${c.n} ${c.lbl}`.trim();
+  const views=Object.assign({},VIEWS,canEdit?{checklist:"Checklist"}:{});
+  $("#tabs").innerHTML=Object.entries(views).map(([k,l])=>`<a href="#${k}" class="${route===k?"on":""}">${l}</a>`).join("");
+  const tp=$("#teamPick");tp.className=isCat()?"on":"";tp.innerHTML=`<option value="">Team page…</option>${usedCats().map(c=>`<option value="${slugCat(c)}"${route===c?" selected":""}>${esc(short(c))}</option>`).join("")}`;
+}
+function renderPage(){
+  team=isCat()?PLAN.suppliers.filter(s=>s.category===route).map(s=>s.id):[];
+  const pg=$("#page");pg.className="";
+  const body=isCat()?vTeam(route):route==="timeline"?vTimeline():route==="tracker"?vTracker():route==="guest"?vGuest():route==="checklist"&&canEdit?vChecklist():vOverview();
+  pg.innerHTML=`<main>${body}</main>`;
+}
+function renderAll(){renderBar();renderPage();renderSavebar()}
+setInterval(()=>{if(PLAN){const c=countdown();$("#whenDays").textContent=`${c.n} ${c.lbl}`.trim();document.querySelectorAll(".cd-n").forEach(e=>e.textContent=c.n);document.querySelectorAll(".cd-l").forEach(e=>e.textContent=c.lbl)}},60000);
+function routeFromHash(){
+  const h=(location.hash||"").slice(1);
+  let m=/^cat-([a-z0-9-]+)$/.exec(h);if(m&&catBySlug(m[1]))return catBySlug(m[1]);
+  m=/^for-([a-z0-9-]+)$/.exec(h);if(m&&PLAN&&sup(m[1]))return sup(m[1]).category;
+  if(h==="suppliers")return "tracker";if(h==="plan")return "timeline";if(VIEWS[h]||h==="checklist")return h;
+  return "overview";
+}
+window.addEventListener("hashchange",()=>{const r=routeFromHash();if(r!==route){route=r;renderAll();window.scrollTo(0,0)}});
+document.addEventListener("change",e=>{if(e.target.id==="teamPick"){location.hash=e.target.value?"cat-"+e.target.value:"tracker"}});
+
+/* ---------- editing ---------- */
+function renderSavebar(){
+  const b=$("#savebar");
+  if(!dirty){b.innerHTML="";return}
+  b.innerHTML=`<div class="savebar"><div class="savebar-in"><span><b>${dirty}</b> unsaved ${dirty===1?"change":"changes"}</span><span style="display:flex;gap:8px"><button class="sbtn" data-act="discard">Discard</button><button class="sbtn solid" data-act="publish" id="pubBtn">Publish</button></span></div></div>`;
+}
+let modalCtx=null;
+function single(kind){return kind==="meta"?{finalBy:PLAN.finalBy,hostNotes:PLAN.hostNotes}:PLAN[kind]}
+function openEditor(kind,id,preset){
+  const S=SCHEMAS[kind];let obj,isNew=false;
+  if(S.single)obj=clone(single(kind));
+  else if(id)obj=clone(PLAN[kind].find(x=>x.id===id));
+  else{isNew=true;obj={};S.fields.forEach(([k,t,,o])=>obj[k]=t==="suppliers"?[]:t==="check"?false:t==="select"?Object.keys(o)[0]:"");
+    if(kind==="timeline")obj.status="tentative";if(kind==="logistics"||kind==="rain")obj.status="confirm";if(kind==="suppliers"){obj.status="pending";if(isCat())obj.category=route}
+    if(team.length&&(kind==="timeline"||kind==="moments"||kind==="notes"))obj.suppliers=team.slice();
+    if((kind==="music"||kind==="cues")&&team.length)obj[kind==="music"?"supplier":"performer"]=team[0];
+    Object.assign(obj,preset||{})}
+  if(!obj)return;
+  modalCtx={kind,id,isNew,confirmDel:false};
+  const f=S.fields.map(([k,t,label,a,b])=>{
+    const help=typeof a==="string"?a:b,fid="f-"+k;let input="";
+    if(t==="text")input=`<input type="text" id="${fid}" value="${esc(obj[k])}"${typeof a==="string"?` placeholder="${esc(a)}"`:""}>`;
+    else if(t==="textarea")input=`<textarea id="${fid}">${esc(obj[k])}</textarea>`;
+    else if(t==="select")input=`<select id="${fid}">${Object.entries(a).map(([v,l])=>`<option value="${esc(v)}"${obj[k]===v?" selected":""}>${esc(l)}</option>`).join("")}</select>`;
+    else if(t==="check")return `<label class="fld" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" id="${fid}"${obj[k]?" checked":""}> ${esc(label)}</label>`;
+    else if(t==="supplierOne")input=`<select id="${fid}"><option value="">Not decided yet</option>${PLAN.suppliers.map(s=>`<option value="${esc(s.id)}"${obj[k]===s.id?" selected":""}>${esc(s.name)}</option>`).join("")}</select>`;
+    else if(t==="suppliers")input=`<div class="checks" id="${fid}">${PLAN.suppliers.map(s=>`<label><input type="checkbox" id="${fid}-${esc(s.id)}" value="${esc(s.id)}"${(obj[k]||[]).includes(s.id)?" checked":""}> ${esc(s.name)}</label>`).join("")}</div>`;
+    return `<div class="fld"><span>${esc(label)}</span>${input}${help&&t!=="text"?`<div class="help">${esc(help)}</div>`:""}</div>`;
+  }).join("");
+  $("#modal").innerHTML=`<div class="scrim" data-act="closebg"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle"><h4 id="mTitle">${isNew?"New ":"Edit "}${esc(S.label.toLowerCase())}</h4><form id="edForm">${f}
+   <div class="mrow"><span>${!S.single&&!isNew?`<button type="button" class="sbtn danger" data-act="del">Delete</button>`:""}</span><span style="display:flex;gap:8px"><button type="button" class="sbtn" data-act="close">Cancel</button><button type="submit" class="sbtn solid">${isNew?"Add":"Save"}</button></span></div></form></div></div>`;
+  const first=$("#modal input[type=text],#modal textarea,#modal select");if(first)first.focus();
+}
+function closeEditor(){$("#modal").innerHTML="";modalCtx=null}
+function readForm(kind){const o={};SCHEMAS[kind].fields.forEach(([k,t])=>{const el=$("#f-"+k);o[k]=t==="check"?el.checked:t==="suppliers"?[...el.querySelectorAll("input:checked")].map(i=>i.value):el.value.trim()});return o}
+function slug(s){let b=String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,32)||"supplier";let id=b,i=2;while(sup(id))id=b+"-"+i++;return id}
+function changed(){dirty++;stash();if(isCat()&&!usedCats().includes(route))route="tracker";const y=scrollY;renderAll();scrollTo(0,y)}
+function saveEditor(){
+  const {kind,id,isNew}=modalCtx,vals=readForm(kind),S=SCHEMAS[kind];
+  if(kind==="meta")Object.assign(PLAN,vals);
+  else if(S.single)Object.assign(PLAN[kind],vals);
+  else if(isNew){vals.id=kind==="suppliers"?slug(vals.name):kind[0]+Date.now().toString(36);PLAN[kind].push(vals)}
+  else Object.assign(PLAN[kind].find(x=>x.id===id),vals);
+  closeEditor();changed();
+}
+function deleteItem(){
+  const {kind,id}=modalCtx;PLAN[kind]=PLAN[kind].filter(x=>x.id!==id);
+  if(kind==="suppliers"){["timeline","moments","notes"].forEach(k=>PLAN[k].forEach(x=>x.suppliers=x.suppliers.filter(s=>s!==id)));PLAN.music=PLAN.music.filter(m=>m.supplier!==id);PLAN.cues.forEach(c=>{if(c.performer===id)c.performer=""})}
+  closeEditor();changed();
+}
+function stash(){try{sessionStorage.setItem("hub.draft4",JSON.stringify({plan:PLAN,dirty}))}catch(e){}}
+function unstash(){try{sessionStorage.removeItem("hub.draft4")}catch(e){}}
+async function publish(){
+  const b=$("#pubBtn");if(b){b.disabled=true;b.textContent="Publishing…"}
+  try{await artifactNS.publish({"data/plan.json":JSON.stringify(PLAN,null,1)});BASE=clone(PLAN);dirty=0;unstash();renderSavebar();toast("Published. Suppliers see it on their next visit.")}
+  catch(e){const code=e&&e.code;
+    toast({conflict:"A newer version was published first. Reload and redo your edits.",not_writer:"You can view this page but not edit it.",not_granted:"Publishing wasn't allowed in this view.",rate_limited:"Publishing too often. Try again in a minute.",too_large:"The plan is too large to publish."}[code]||("Couldn't publish: "+((e&&e.message)||"unknown error")));
+    if(b){b.disabled=false;b.textContent="Publish"}}
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]");if(!t)return;const a=t.dataset.act;
+  if(a==="closebg"&&e.target!==t)return;
+  if(a==="zoom"){if(editing)return;$("#modal").innerHTML=`<div class="scrim lb" data-act="close"><img src="${esc(t.getAttribute("src"))}" alt="${esc(t.alt)}"><p>${esc(t.alt)}</p></div>`;modalCtx={zoom:true};return}
+  if(a==="edit"){e.preventDefault();openEditor(t.dataset.kind,t.dataset.id)}
+  else if(a==="add"){const p={};if(t.dataset.segment)p.segment=t.dataset.segment;if(t.dataset.phase)p.phase=t.dataset.phase;openEditor(t.dataset.kind,null,p)}
+  else if(a==="close"||a==="closebg")closeEditor();
+  else if(a==="del"){if(!modalCtx.confirmDel){modalCtx.confirmDel=true;t.textContent="Click again to delete"}else deleteItem()}
+  else if(a==="discard"){PLAN=clone(BASE);dirty=0;unstash();renderAll();toast("Changes discarded.")}
+  else if(a==="publish")publish();
+  else if(a==="mvprog"){const i=+t.dataset.i,j=i+(+t.dataset.d),P=PLAN.program;if(j>=0&&j<P.length){[P[i],P[j]]=[P[j],P[i]];changed()}}
+  else if(a==="deltodo"){if(t.dataset.armed){PLAN.todos=PLAN.todos.filter(x=>x.id!==t.dataset.id);changed()}else{t.dataset.armed="1";t.textContent="Delete?";t.classList.add("armed");setTimeout(()=>{if(t.isConnected){delete t.dataset.armed;t.textContent="✕";t.classList.remove("armed")}},3000)}}
+  else if(a==="brief"){const s=sup(t.dataset.id);s.tracker=s.tracker||{briefSent:false,pending:[]};s.tracker.briefSent=t.checked;changed()}
+  else if(a==="addpend"){addPend(t.dataset.id)}
+  else if(a==="donepend"){const s=sup(t.dataset.id);s.tracker.pending.splice(+t.dataset.i,1);changed()}
+  else if(a==="todo"){const td=PLAN.todos.find(x=>x.id===t.dataset.id);if(td){td.done=t.checked;changed()}}
+});
+function addPend(id){const el=$("#pend-"+id),v=el&&el.value.trim();if(!v)return;const s=sup(id);s.tracker=s.tracker||{briefSent:false,pending:[]};s.tracker.pending.push(v);changed();const n=$("#pend-"+id);if(n)n.focus()}
+document.addEventListener("change",e=>{const t=e.target;if(t.dataset&&t.dataset.act==="stime"){const s=sup(t.dataset.id);s[t.dataset.k]=t.value.trim();changed();return}if(t.dataset&&t.dataset.act==="meal"){const s=sup(t.dataset.id);s.tracker.meals=s.tracker.meals||{};s.tracker.meals[t.dataset.k]=t.value;changed()}});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.dataset&&e.target.dataset.pend){e.preventDefault();addPend(e.target.dataset.pend)}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modalCtx)closeEditor()});
+document.addEventListener("submit",e=>{if(e.target.id==="edForm"){e.preventDefault();saveEditor()}});
+$("#editToggle").addEventListener("click",()=>{editing=!editing;document.body.classList.toggle("editing",editing);$("#editToggle").classList.toggle("on",editing);$("#editToggle").textContent=editing?"Done":"Edit";const y=scrollY;renderPage();scrollTo(0,y)});
+
+/* ---------- boot ---------- */
+async function boot(){
+  try{const r=await fetch("data/plan.json",{cache:"no-store"});if(!r.ok)throw new Error(r.status);PLAN=await r.json()}
+  catch(e){$("#page").textContent="The plan couldn't load. Refresh the page to try again.";return}
+  BASE=clone(PLAN);
+  try{const d=JSON.parse(sessionStorage.getItem("hub.draft4")||"null");if(d&&d.dirty){PLAN=d.plan;dirty=d.dirty}}catch(e){}
+  route=routeFromHash();
+  renderAll();connect();
+}
+async function connect(){
+  if(!window.claude||!window.claude.use)return;
+  const [u,a]=await Promise.all([claude.use("user"),claude.use("artifact")]);
+  artifactNS=a;
+  if(u){try{canEdit=await u.canEdit()}catch(e){}}
+  if(canEdit&&artifactNS){
+    $("#editToggle").hidden=false;
+    if(dirty){editing=true;document.body.classList.add("editing");$("#editToggle").classList.add("on");$("#editToggle").textContent="Done"}
+    route=routeFromHash();renderAll();
+  }
+}
+boot();
+})();
+</script>
+</body></html>
