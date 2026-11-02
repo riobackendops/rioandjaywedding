@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   var EMAIL = 'rio@backendoperators.com';
-  var TARGET = Date.parse('2026-12-20T16:00:00+08:00');
+  var TARGET = Date.parse('2026-12-20T15:30:00+08:00');
   var state = { phase: 'closed', attend: null, sent: false, sending: false, err: '', songSent: false, confetti: false };
   var openedAt = 0, cft = null;
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
@@ -138,9 +138,9 @@
   try {
     var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Rio and Jay//Wedding//EN', 'BEGIN:VEVENT',
       'UID:rio-jay-20261220@rioandjaywedding.com', 'DTSTAMP:20261008T000000Z',
-      'DTSTART:20261220T080000Z', 'DTEND:20261220T150000Z', "SUMMARY:Rio & Jay's Wedding",
+      'DTSTART:20261220T073000Z', 'DTEND:20261220T150000Z', "SUMMARY:Rio & Jay's Wedding",
       'LOCATION:The VFarm Bamban\\, Bamban\\, Tarlac',
-      'DESCRIPTION:Guest arrival at 4:00 PM. Map: https://maps.app.goo.gl/Hsd22ERwynX1Ghrp9',
+      'DESCRIPTION:Guest arrival at 3:30 PM, ceremony at 4:00 PM. Map: https://maps.app.goo.gl/Hsd22ERwynX1Ghrp9',
       'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
     var url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
     $$('[data-ics]').forEach(function (a) { a.href = url; });
