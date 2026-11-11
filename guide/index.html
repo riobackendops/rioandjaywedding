@@ -13,6 +13,28 @@
     @keyframes tw { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.75; } }
     .tw { animation: tw 3.6s ease-in-out infinite; }
     @media (prefers-reduced-motion: reduce) { .tw { animation: none; } }
+    /* --- motion: scroll reveals, matched to the invitation's .rv-up --- */
+    .js .rv:not(.rvg) { opacity: 0; translate: 0 26px; transition: opacity .75s cubic-bezier(.22,.8,.3,1), translate .75s cubic-bezier(.22,.8,.3,1); }
+    .js .rv:not(.rvg).in { opacity: 1; translate: 0 0; }
+    .js .rvg > * { opacity: 0; }
+    .js .rvg.in > * { animation: rvcell .7s cubic-bezier(.22,.8,.3,1) both; }
+    .js .rvg.in > *:nth-child(2) { animation-delay: .09s; }
+    .js .rvg.in > *:nth-child(3) { animation-delay: .18s; }
+    .js .rvg.in > *:nth-child(4) { animation-delay: .27s; }
+    .js .rvg.in > *:nth-child(5) { animation-delay: .36s; }
+    .js .rvg.in > *:nth-child(n+6) { animation-delay: .45s; }
+    @keyframes rvcell { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+    /* header + shortcuts settle in on load */
+    .js .hv { animation: rvcell .9s cubic-bezier(.22,.8,.3,1) both; }
+    .js .hv2 { animation-delay: .14s; }
+    .js .hv3 { animation-delay: .26s; }
+    /* a little life on the things you can press */
+    a[href], button { transition: background-color .25s ease, color .25s ease, translate .25s ease, box-shadow .25s ease; }
+    @media (hover: hover) { .sc:hover { translate: 0 -3px; box-shadow: 0 10px 22px rgba(0,0,0,0.22); } }
+    @media (prefers-reduced-motion: reduce) {
+      .js .rv:not(.rvg), .js .rvg > *, .js .hv { opacity: 1; translate: none; animation: none; transition: none; }
+      a[href], button, .sc:hover { transition: none; translate: none; }
+    }
   </style>
 </head>
 <body>
@@ -29,13 +51,13 @@
   <!-- HEADER -->
   <div style="padding: 72px 20px 56px; background: linear-gradient(180deg, #0d3a2b, #062b1f)">
     <div style="max-width: 1060px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 32px 48px">
-      <div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+      <div class="hv" style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #a9c4b7">The VFarm Bamban &#183; 12.20.26</span>
         <h1 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(44px, 7vw, 78px); line-height: 1; letter-spacing: 0.04em">The Guest Guide</h1>
         <div style="font-family: 'Ms Madi', cursive; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; color: #e8a3a0">everything you need for the day</div>
         <p style="margin: 8px 0 0; color: #a9c4b7; max-width: 520px">How to get there, when to arrive for your role, and what happens once you walk in.</p>
       </div>
-      <div style="flex: 0 0 auto; background: #f3efe6; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+      <div class="hv hv2" style="flex: 0 0 auto; background: #f3efe6; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px">
         <div style="width: 124px; height: 124px; border: 1px dashed #c9bfae; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a50; line-height: 1.8">QR code<br>to add</div>
         <span style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a50; text-align: center; line-height: 1.6">Scan for the<br>shared album</span>
       </div>
@@ -44,8 +66,8 @@
 
   <!-- SHORTCUTS -->
   <div style="background: #062b1f; padding: 0 20px 48px">
-    <div style="max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px">
-      <a href="#g-dress" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
+    <div class="hv hv3" style="max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px">
+      <a class="sc" href="#g-dress" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
         <span style="flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: #062b1f; border: 1px solid #245442; display: flex; align-items: center; justify-content: center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d5ebe0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.6a2 2 0 1 0-2 2c0 1.2 2 1.4 2 2.6"/><path d="M12 9.2 3.6 15.4a1.4 1.4 0 0 0 .8 2.5h15.2a1.4 1.4 0 0 0 .8-2.5L12 9.2z"/></svg>
         </span>
@@ -54,7 +76,7 @@
           <span style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #7f9c8c">On this page</span>
         </span>
       </a>
-      <a href="#g-venue" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
+      <a class="sc" href="#g-venue" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
         <span style="flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: #062b1f; border: 1px solid #245442; display: flex; align-items: center; justify-content: center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d5ebe0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
         </span>
@@ -63,7 +85,7 @@
           <span style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #7f9c8c">On this page</span>
         </span>
       </a>
-      <a href="#g-seating" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
+      <a class="sc" href="#g-seating" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
         <span style="flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: #062b1f; border: 1px solid #245442; display: flex; align-items: center; justify-content: center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d5ebe0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.4" width="8" height="8.2" rx="1.6"/><path d="M5.4 11.6h13.2"/><path d="M7.6 11.6V20.6M16.4 11.6V20.6"/></svg>
         </span>
@@ -72,7 +94,7 @@
           <span style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #7f9c8c">On this page</span>
         </span>
       </a>
-      <a href="#g-photos" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
+      <a class="sc" href="#g-photos" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 16px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0">
         <span style="flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: #062b1f; border: 1px solid #245442; display: flex; align-items: center; justify-content: center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d5ebe0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.2" y="7.4" width="17.6" height="12.4" rx="2.2"/><path d="M8.4 7.4 9.8 4.4h4.4l1.4 3"/><circle cx="12" cy="13.6" r="3.4"/></svg>
         </span>
@@ -87,13 +109,13 @@
   <!-- 01 · DRESS CODE -->
   <div id="g-dress" style="padding: 80px 20px; background: #fbf8f2; color: #15261f">
     <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
-      <div style="display: flex; flex-direction: column; gap: 6px">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 6px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">01 &#183; Dress code</span>
         <h2 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.04em; color: #062b1f">What to wear</h2>
         <p style="margin: 8px 0 0; color: #4b5a52; max-width: 620px">Start here &#8212; this is the one thing that needs a head start. Find your group below, then dress to its palette so the room reads as one.</p>
       </div>
 
-      <div style="border: 1px solid #e6ddcd; border-radius: 18px; overflow: hidden">
+      <div class="rv" style="border: 1px solid #e6ddcd; border-radius: 18px; overflow: hidden">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: #e6ddcd">
           <div style="background: #ffffff; display: flex; flex-direction: column">
             <div style="background: #f6f0e4"><img src="img/attire-sponsors.jpg" alt="Ninangs in long gowns with shawls and ninongs in taupe, burgundy and black suits" style="width: 100%; height: auto; display: block"></div>
@@ -122,9 +144,9 @@
         </div>
       </div>
 
-      <p style="margin: 0; font-size: 15px; color: #6e7b6d">Parents of the bride and groom: we will be in touch with you directly about your outfits.</p>
+      <p class="rv" style="margin: 0; font-size: 15px; color: #6e7b6d">Parents of the bride and groom: we will be in touch with you directly about your outfits.</p>
 
-      <div style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 14px; padding: 8px 24px 10px">
+      <div class="rv" style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 14px; padding: 8px 24px 10px">
           <div style="border-bottom: 1px solid #efe6d6; padding: 14px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
             <span style="flex: 0 0 auto; width: 148px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #2f6b4a">&#10003; Wear formal</span>
             <span style="flex: 999 1 240px; min-width: 0; color: #3d4a42; font-size: 15px">Gowns &amp; formal dresses &#183; Suits &amp; ties &#183; Dressy shoes that can handle grass</span>
@@ -147,13 +169,13 @@
     <div class="tw" style="animation-delay: 1.5s; position: absolute; right: 9%; top: 24%; width: 2px; height: 2px; border-radius: 50%; background: #f3efe6; opacity: 0.4"></div>
     <div class="tw" style="animation-delay: 2.3s; position: absolute; left: 14%; bottom: 14%; width: 2px; height: 2px; border-radius: 50%; background: #f3efe6; opacity: 0.4"></div>
     <div style="position: relative; max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 46px">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px">
+      <div class="rv" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #7f9c8c">02 &#183; Important reminders</span>
         <h2 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.04em; color: #ffffff">Four things to know</h2>
         <svg width="150" height="10" viewBox="0 0 150 10" aria-hidden="true" style="margin-top: 4px"><line x1="0" y1="5" x2="62" y2="5" stroke="#7a1016" stroke-width="1.2"></line><line x1="88" y1="5" x2="150" y2="5" stroke="#7a1016" stroke-width="1.2"></line><path d="M75 1.4c3.2 1.8 3.2 5.4 0 7.2-3.2-1.8-3.2-5.4 0-7.2z" fill="#7a1016"></path></svg>
         <p style="margin: 6px 0 0; color: #a9c4b7; max-width: 560px">The first two decide who can walk through the door with you. Please take a moment with all four before the day.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 44px 28px">
+      <div class="rv rvg" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 44px 28px">
           <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px">
             <span style="position: relative; width: 112px; height: 112px; flex: 0 0 auto; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 34% 28%, #99202f 0%, #7a1016 52%, #4e0d18 100%); box-shadow: 0 12px 26px -12px rgba(0,0,0,0.75), inset 0 0 0 1px rgba(255,255,255,0.10)">
               <span style="position: absolute; inset: 9px; border-radius: 50%; border: 1px solid rgba(255,210,204,0.55)"></span>
@@ -197,12 +219,12 @@
   <!-- 03 · GETTING THERE -->
   <div id="g-venue" style="padding: 80px 20px; background: #fbf8f2; color: #15261f">
     <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-      <div style="display: flex; flex-direction: column; gap: 6px">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 6px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">03 &#183; Getting there</span>
         <h2 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.04em; color: #062b1f">How to reach us</h2>
       </div>
 
-      <div style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column; gap: 20px">
+      <div class="rv" style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column; gap: 20px">
         <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px">
           <div>
             <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: 34px; line-height: 1.1; color: #062b1f">The VFarm Bamban</h3>
@@ -255,7 +277,7 @@
         </div>
       </div>
 
-      <div style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column; gap: 16px">
+      <div class="rv" style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column; gap: 16px">
         <div>
           <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a50">Coming from</span>
           <h3 style="margin: 4px 0 0; font-family: 'Italiana', serif; font-weight: 400; font-size: 32px; line-height: 1.1; color: #062b1f">Estimated travel time</h3>
@@ -301,13 +323,13 @@
   <!-- 04 · WHEN TO ARRIVE -->
   <div id="g-calltime" style="padding: 80px 20px; background: #062b1f">
     <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px">
-      <div style="display: flex; flex-direction: column; gap: 6px">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 6px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">04 &#183; When to arrive</span>
         <h2 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.04em">Find your call time</h2>
         <p style="margin: 8px 0 0; color: #a9c4b7; max-width: 620px">All on December 20. These are the times we need you at the venue, not the times to leave home.</p>
       </div>
 
-      <div style="background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 4px 28px">
+      <div class="rv" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 4px 28px">
           <div style="border-bottom: 1px solid #245442; padding: 18px 0; display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: baseline">
             <div style="flex: 0 0 auto; width: 118px; font-family: 'Italiana', serif; font-size: 34px; line-height: 1; color: #d5ebe0">7:00<span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; color: #a9c4b7"> AM</span></div>
             <div style="flex: 999 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 5px">
@@ -332,7 +354,7 @@
           </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
+      <div class="rv rvg" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
         <div style="background: #6b0d12; border-radius: 18px; padding: 24px 26px; display: flex; flex-direction: column; gap: 6px">
           <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(26px, 3vw, 32px); line-height: 1.1; color: #ffffff">Doors close at 3:50 PM</h3>
           <p style="margin: 0; color: #ffe4e0; font-size: 15px; line-height: 1.55">A hard cut-off. The ceremony begins at 4:00 PM, and late arrivals will be asked to wait outside until the processional is over.</p>
@@ -348,14 +370,14 @@
   <!-- 05 · ON THE DAY -->
   <div id="g-day" style="padding: 86px 20px; background: #03160e">
     <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-      <div style="display: flex; flex-direction: column; gap: 6px">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 6px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #7f9c8c">05 &#183; On the day</span>
         <h2 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.04em; color: #ffffff">What is waiting for you</h2>
         <p style="margin: 8px 0 0; color: #a9c4b7; max-width: 620px">Cocktail hour runs in the garden, and everything here is open until dinner is called. Wander, graze and work your way round.</p>
       </div>
 
 
-      <div style="display: flex; flex-direction: column; gap: 16px">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 16px">
         <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px">
           <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(27px, 3vw, 34px); line-height: 1.1; color: #ffffff">While you wait</h3>
           <span style="font-family: 'Courier Prime', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">3:30 PM &#183; assembly &amp; ceremony</span>
@@ -449,11 +471,11 @@
         </div>
       </div>
 
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px">
+        <div class="rv" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px">
           <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(27px, 3vw, 34px); line-height: 1.1; color: #ffffff">Reception &amp; after party</h3>
           <span style="font-family: 'Courier Prime', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">6:30 PM onwards &#183; the shed</span>
         </div>
-        <div style="border: 1px solid #245442; border-radius: 18px; overflow: hidden; margin-top: -6px">
+        <div class="rv" style="border: 1px solid #245442; border-radius: 18px; overflow: hidden; margin-top: -6px">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 1px; background: #245442">
             <div style="background: #0d3a2b; padding: 15px 18px; display: flex; align-items: center; gap: 14px; min-width: 0">
               <span style="flex: 0 0 auto; width: 58px; height: 58px; border-radius: 10px; overflow: hidden; background: #062b1f">
@@ -485,7 +507,7 @@
           </div>
         </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; align-items: stretch">
+      <div class="rv rvg" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; align-items: stretch">
         <div id="g-seating" style="background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 9px; min-width: 0">
           <span style="font-family: 'Courier Prime', monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #a9c4b7">Seating &#183; the shed</span>
           <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: 26px; line-height: 1.1; color: #ffffff">Find your table</h3>
@@ -569,13 +591,13 @@
   <!-- 06 · PHOTOS -->
   <div id="g-photos" style="padding: 72px 20px; background: #f3efe6; color: #15261f">
     <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 28px 44px">
-      <div style="flex: 999 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+      <div class="rv" style="flex: 999 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8a6a50">06 &#183; Photos</span>
         <h2 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(36px, 5vw, 54px); line-height: 1.02; letter-spacing: 0.04em; color: #062b1f">Share what you catch</h2>
         <p style="margin: 6px 0 0; color: #4b5a52; max-width: 520px">Everything except the walk down the aisle is fair game. Drop your shots in our shared album &#8212; we want to see the night through your eyes. Please use <strong style="color: #6b0d12; font-weight: 400">#rioandjaywedding</strong> as the official hashtag when you post, and tag Rio and Jay so nothing gets lost.</p>
         <div style="font-family: 'Italiana', serif; font-size: clamp(28px, 3.6vw, 40px); line-height: 1; letter-spacing: 0.03em; color: #6b0d12; margin-top: 8px">#rioandjaywedding</div>
       </div>
-      <div style="flex: 0 0 auto; background: #ffffff; border: 1px solid #e6ddcd; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+      <div class="rv" style="flex: 0 0 auto; background: #ffffff; border: 1px solid #e6ddcd; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px">
         <div style="width: 124px; height: 124px; border: 1px dashed #c9bfae; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a50; line-height: 1.8">QR code<br>to add</div>
         <span style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a50; text-align: center; line-height: 1.6">Scan for the<br>shared album</span>
       </div>
@@ -681,6 +703,22 @@ var SEATING = [
   fillSeating();
   render();
 })();
+(function () {
+  try {
+    var root = document.documentElement;
+    if (root.className.indexOf("js") < 0) root.className = (root.className ? root.className + " " : "") + "js";
+    var els = [].slice.call(document.querySelectorAll(".rv"));
+    var show = function (el) { el.classList.add("in"); };
+    if (!("IntersectionObserver" in window)) { els.forEach(show); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { show(en.target); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+    els.forEach(function (el) { io.observe(el); });
+  } catch (e) {}
+})();
+
 </script>
 
 </body>
