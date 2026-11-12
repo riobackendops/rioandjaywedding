@@ -395,30 +395,7 @@ html{scroll-behavior:smooth}
             </div>
           </div>
         </div>
-        <!-- timeline -->
-        <div style="background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column">
-          <h3 style="margin: 0 0 10px; font-family: 'Italiana', serif; font-weight: 400; font-size: 36px">The timeline</h3>
-          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
-            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">3:30 PM</span><span style="font-size: 19px">Guest arrival</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
-            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">4:00 PM</span><span style="font-size: 19px">Wedding ceremony</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
-            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">5:00 PM</span><span style="font-size: 19px">Cocktail hour</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid #245442; align-items: baseline">
-            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">6:30 PM</span><span style="font-size: 19px">Reception &amp; dinner</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; align-items: baseline">
-            <span style="font-family: 'Courier Prime', monospace; font-weight: 700; color: #d5ebe0">8:30 PM</span><span style="font-size: 19px">After party</span>
-          </div>
-          <div style="height: 20px; flex: 0 0 auto"></div>
-          <p style="margin: 0; padding: 16px 18px; background: #d5ebe0; color: #062b1f; border-radius: 12px; font-size: 15px; line-height: 1.55"><strong>Please arrive on time.</strong> One of the greatest gifts you can give us is your presence from beginning to end. We've planned every part of the day, and it would mean the world to share those moments with you.</p>
-        </div>
-      </div>
-      <!-- call times + getting there -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: start">
+        <!-- call times -->
         <div style="background: #0d3a2b; border: 1px solid #245442; border-radius: 18px; padding: 28px 30px; display: flex; flex-direction: column">
           <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: 36px">Find your call time</h3>
           <p style="margin: 6px 0 4px; color: #a9c4b7">Different people, different starts.</p>
@@ -437,7 +414,9 @@ html{scroll-behavior:smooth}
           <p style="margin: 16px 0 0; padding: 16px 18px; background: #e8a3a0; color: #3a0a0d; border-radius: 12px; font-size: 15px; line-height: 1.55"><strong>Doors close at 3:50 PM.</strong> This is a hard cut-off: the ceremony begins at 4:00, and late arrivals will wait outside until the processional is over.</p>
           <p style="margin: 14px 0 0; font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #a9c4b7">We finish at around 10:30 PM</p>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 24px">
+      </div>
+      <!-- getting there -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: start">
           <div style="background: #fbf8f2; color: #15261f; border-radius: 18px; padding: 26px 28px">
             <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: 36px">Estimated travel time</h3>
             <p style="margin: 4px 0 10px; color: #64726a; font-size: 15px">To The VFarm Bamban</p>
@@ -461,7 +440,6 @@ html{scroll-behavior:smooth}
             </div>
             <p style="margin: 0; color: #4b5a52; font-size: 15px">We don't have room blocks, so please book early.</p>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -675,96 +653,58 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- DRESS CODE -->
-  <section id="dress" style="background: #fbf8f2; color: #15261f; padding: 96px 20px">
-    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+  <section id="dress" style="padding: 96px 20px; background: #fbf8f2; color: #15261f">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
       <div style="display: flex; flex-direction: column; gap: 6px">
-        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">04 · DRESS CODE</span>
-        <h2 data-rv="h3" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">What to wear</h2>
-        <p style="margin: 6px 0 0; max-width: 620px; color: #4b5a52">Kindly follow the palette for your group so we all look lovely together in the photos.</p>
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #8a6a50">04 &#183; Dress code</span>
+        <h2 data-rv="h3" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: 0.04em; color: #062b1f">What to wear</h2>
+        <p style="margin: 8px 0 0; color: #4b5a52; max-width: 620px">Find your group below, then dress to its palette so the room reads as one.</p>
       </div>
-      <div data-rv="dress"  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; align-items: start">
-        <div style="border: 1px solid #e6dfd2; border-radius: 18px; padding: 26px; background: #ffffff; display: flex; flex-direction: column; gap: 22px">
-          <div style="display: flex; flex-direction: column; gap: 14px">
-            <div>
-              <div style="font-family: 'Ms Madi', cursive; font-size: 38px; line-height: 1; color: #6b0d12">Principal Sponsors &amp; Family</div>
-              <div style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #64726a">Ninongs, ninangs &amp; family</div>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px">
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.10s; width: 48px; height: 48px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Deep Red</span></div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.18s; width: 48px; height: 48px; border-radius: 50%; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Beige</span></div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.26s; width: 48px; height: 48px; border-radius: 50%; background: #a58467; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Dark Beige</span></div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.34s; width: 48px; height: 48px; border-radius: 50%; background: #111111; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Black</span></div>
-            </div>
-            <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px">
-              <li>Long gown for women, suit and tie for men</li>
-              <li>Lace or chiffon preferred for women, with a shawl or wrap</li>
-              <li>Suits in taupe, beige, deep red or black for men</li>
-            </ul>
-          </div>
-          <div style="height: 1px; background: #efe8dc"></div>
-          <div style="display: flex; flex-direction: column; gap: 14px">
-            <div>
-              <div style="font-family: 'Ms Madi', cursive; font-size: 38px; line-height: 1; color: #0d3a2b">Guests</div>
-              <div style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #64726a">Everyone else we love</div>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px">
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.42s; width: 48px; height: 48px; border-radius: 50%; background: #a58467; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Dark Beige</span></div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.50s; width: 48px; height: 48px; border-radius: 50%; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Beige</span></div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px"><div class="pop" style="transition-delay: 0.58s; width: 48px; height: 48px; border-radius: 50%; background: #c4bab1; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12)"></div><span style="font-family: 'Courier Prime', monospace; font-size: 12px; text-align: center; color: #33443b">Light Taupe</span></div>
-            </div>
-            <p style="margin: 0">Formal is preferred, semi-formal is welcome. A jacket is optional; a long-sleeved top and slacks is plenty. The cocktail hour is on grass, so pick lawn-friendly shoes.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px">
-              <div style="background: #f2ece1; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
-                <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a50">Semi-formal for her</span>
-                <span style="font-size: 15px; line-height: 1.5">Midi or cocktail dress · Dressy jumpsuit · Elegant blouse with a flowy skirt or tailored slacks</span>
-              </div>
-              <div style="background: #f2ece1; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
-                <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a50">Semi-formal for him</span>
-                <span style="font-size: 15px; line-height: 1.5">Long-sleeved polo or button-down with slacks · Blazer, tie optional · Dress shoes or loafers</span>
-              </div>
+
+      <div class="rv-up" data-rv="dr1" style="border: 1px solid #e6ddcd; border-radius: 18px; overflow: hidden">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: #e6ddcd">
+          <div style="background: #ffffff; display: flex; flex-direction: column">
+            <div style="background: #f6f0e4"><img src="images/guide/attire-sponsors.jpg" alt="Ninangs in long gowns with shawls and ninongs in taupe, burgundy and black suits" style="width: 100%; height: auto; display: block"></div>
+            <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1 1 auto">
+              <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(23px, 2.2vw, 28px); line-height: 1.12; color: #062b1f">Ninongs &amp; ninangs</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 9px"><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Deep red</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Beige</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #a58467; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Dark beige</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #1b1b1b; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Black</span></span></div>
+              <ul style="margin: 0; padding-left: 18px; color: #3d4a42; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; line-height: 1.55"><li style="margin: 0">Long gown for the ninangs, suit and tie for the ninongs</li><li style="margin: 0">Lace or chiffon preferred &#8212; a shawl or wrap works beautifully</li><li style="margin: 0">Suits in taupe, beige, deep red or black</li></ul>
             </div>
           </div>
-        </div>
-        <div style="border-radius: 18px; padding: 26px; background: #062b1f; color: #f3efe6; display: flex; flex-direction: column; gap: 14px">
-          <div>
-            <div style="font-family: 'Ms Madi', cursive; font-size: 38px; line-height: 1; color: #d5ebe0">The Entourage</div>
-            <div style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #a9c4b7">We've got you covered</div>
+          <div style="background: #ffffff; display: flex; flex-direction: column">
+            <div style="background: #f6f0e4"><img src="images/guide/attire-guests.jpg" alt="Guests in beige and taupe gowns, dressy trousers, a suit and a shirt without a jacket" style="width: 100%; height: auto; display: block"></div>
+            <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1 1 auto">
+              <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(23px, 2.2vw, 28px); line-height: 1.12; color: #062b1f">Guests</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 9px"><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #a58467; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Dark beige</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Beige</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #c4bab1; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Light taupe</span></span></div>
+              <ul style="margin: 0; padding-left: 18px; color: #3d4a42; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; line-height: 1.55"><li style="margin: 0">Formal is preferred, semi-formal is welcome</li><li style="margin: 0">A gown, a dress or dressy trousers all work</li><li style="margin: 0"><strong style="color: #062b1f">Semi-formal for her:</strong> midi or cocktail dress, dressy jumpsuit, or an elegant blouse with a flowy skirt or tailored slacks</li><li style="margin: 0"><strong style="color: #062b1f">Semi-formal for him:</strong> long-sleeved polo or button-down with slacks, blazer with tie optional, dress shoes or loafers</li><li style="margin: 0">A jacket is optional &#8212; a long-sleeved top and slacks is plenty</li><li style="margin: 0">Cocktail hour is on grass, so pick shoes that can handle a lawn</li></ul>
+            </div>
           </div>
-          <p style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #d5ebe0; color: #062b1f; font-size: 15px; line-height: 1.5"><strong>No shopping needed.</strong> Rio &amp; Jay are providing the entourage's dresses and suits.</p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
-            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
-              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Team Bride</span>
-              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Deep red</span></span>
-            </li>
-            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
-              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Team Groom</span>
-              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #111111; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Black, with a deep red tie</span></span>
-            </li>
-            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
-              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Flower Girls</span>
-              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Red or beige dress</span></span>
-            </li>
-            <li style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid #245442">
-              <span style="font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #d5ebe0">Flower Boys</span>
-              <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="width: 18px; height: 18px; border-radius: 50%; background: #111111; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #fbf8f2; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #a58467; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); flex-shrink: 0"></span><span>Black pants, white shirt, dark beige or deep red vest &amp; tie</span></span>
-            </li>
-          </ul>
+          <div style="background: #ffffff; display: flex; flex-direction: column">
+            <div style="background: #f6f0e4"><img src="images/guide/attire-party.jpg" alt="Bridesmaids in deep red gowns, a groomsman in black, and a flower girl and boy" style="width: 100%; height: auto; display: block"></div>
+            <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1 1 auto">
+              <h3 style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(23px, 2.2vw, 28px); line-height: 1.12; color: #062b1f">Bridesmaids, groomsmen, flower girls &amp; boys</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 9px"><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #7a1016; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Deep red</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #1b1b1b; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Black</span></span><span style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 62px"><i style="width: 28px; height: 28px; border-radius: 50%; display: block; background: #efd9cc; box-shadow: inset 0 0 0 1px rgba(27,36,32,0.14)"></i><span style="font-family: 'Courier Prime', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6e7b6d; text-align: center; line-height: 1.5">Beige</span></span></div>
+              <ul style="margin: 0; padding-left: 18px; color: #3d4a42; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; line-height: 1.55"><li style="margin: 0"><strong style="color: #062b1f">No shopping needed</strong> &#8212; Rio &amp; Jay are providing your outfit</li><li style="margin: 0">Bridesmaids in deep red, groomsmen in black with a deep red tie</li><li style="margin: 0">Flower girls in a red or beige dress</li><li style="margin: 0">Flower boys in black pants and a white shirt, with a dark beige or deep red vest &amp; tie</li></ul>
+            </div>
+          </div>
         </div>
       </div>
-      <p style="margin: -16px 0 0; padding: 14px 18px; background: #f2ece1; border-radius: 12px; color: #33443b; font-size: 15px"><strong>Parents of the bride and groom:</strong> we'll be in touch with you directly about your outfits.</p>
-      <div style="border: 1px solid #e6dfd2; border-radius: 16px; background: #ffffff; padding: 6px 22px">
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid #efe8dc">
-          <span style="display: inline-flex; align-items: center; gap: 6px; min-width: 150px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #2e8a5c"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e8a5c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg> Wear formal</span>
-          <span style="color: #33443b; font-size: 16px">Gowns &amp; formal dresses · Suits &amp; ties · Dressy shoes that can handle grass</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid #efe8dc">
-          <span style="display: inline-flex; align-items: center; gap: 6px; min-width: 150px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #a3262d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a3262d" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg> Skip casual</span>
-          <span style="color: #33443b; font-size: 16px">Shorts &amp; t-shirts · Denim · Athletic wear · Slippers</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0">
-          <span style="display: inline-flex; align-items: center; gap: 6px; min-width: 150px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #a3262d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a3262d" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg> Skip colours</span>
-          <span style="color: #33443b; font-size: 16px">White, ivory &amp; cream · Bright red · Neon</span>
-        </div>
+
+      <p class="rv-up" data-rv="dr2" style="margin: 0; font-size: 15px; color: #6e7b6d">Parents of the bride and groom: we will be in touch with you directly about your outfits.</p>
+
+      <div class="rv-up" data-rv="dr3" style="background: #ffffff; border: 1px solid #e6ddcd; border-radius: 14px; padding: 8px 24px 10px">
+          <div style="border-bottom: 1px solid #efe6d6; padding: 14px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
+            <span style="flex: 0 0 auto; width: 148px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #2f6b4a">&#10003; Wear formal</span>
+            <span style="flex: 999 1 240px; min-width: 0; color: #3d4a42; font-size: 15px">Gowns &amp; formal dresses &#183; Suits &amp; ties &#183; Dressy shoes that can handle grass</span>
+          </div>
+          <div style="border-bottom: 1px solid #efe6d6; padding: 14px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
+            <span style="flex: 0 0 auto; width: 148px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b0d12">&#10007; Skip casual</span>
+            <span style="flex: 999 1 240px; min-width: 0; color: #3d4a42; font-size: 15px">Shorts &amp; t-shirts &#183; Denim &#183; Athletic wear &#183; Slippers</span>
+          </div>
+          <div style="padding: 14px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
+            <span style="flex: 0 0 auto; width: 148px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b0d12">&#10007; Skip colours</span>
+            <span style="flex: 999 1 240px; min-width: 0; color: #3d4a42; font-size: 15px">White, ivory &amp; cream &#183; Bright red &#183; Neon</span>
+          </div>
       </div>
     </div>
   </section>
