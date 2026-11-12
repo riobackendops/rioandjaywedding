@@ -333,8 +333,10 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- THE DAY -->
-  <section id="day" style="padding: 96px 20px">
-    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+  <section id="day" style="position: relative; overflow: hidden; padding: 96px 20px">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: url('images/the-shed.jpg') center 30% / cover no-repeat; opacity: 0.2; pointer-events: none"></div>
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,43,31,0.2) 0%, rgba(6,43,31,0.55) 55%, #062b1f 100%); pointer-events: none"></div>
+    <div style="position: relative; max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
       <div style="display: flex; flex-direction: column; gap: 6px">
         <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.22em; color: #d5ebe0">01 · THE DAY</span>
         <h2 data-rv="h1" class="rv-up" style="margin: 0; font-family: 'Italiana', serif; font-weight: 400; font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: 0.04em">Where &amp; when</h2>
